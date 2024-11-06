@@ -1,0 +1,53 @@
+body{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    
+}
+.menu_lateral{
+    width: 10%;
+    height: 100vh;
+    background-color: red;
+    display: fixed;
+}
+
+.conteudo{
+    width: 90%;
+    height: 100vh;
+    background-image: url(../Imagens/estadiomorumbi_noite.jpg);
+    /* background-repeat: no-repeat;
+   width: 90%; */
+   background-size: cover;
+}
+
+.navbar{
+    width: 100%;
+    height: 50px;
+    display: flex;
+}
+.vermelho{
+    width: 38%;
+    height: 100%;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.branco{
+    width: 38%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.preto{
+    box-sizing: border-box;
+    padding: 0 3rem  0 0;
+    width: 38%;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
