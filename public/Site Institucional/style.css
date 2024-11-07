@@ -7,8 +7,9 @@ body{
 .menu_lateral{
     width: 10%;
     height: 100vh;
-    background-color: red;
+    background-color: #8D0303;
     display: fixed;
+   
 }
 
 .conteudo{
@@ -18,6 +19,7 @@ body{
     /* background-repeat: no-repeat;
    width: 90%; */
    background-size: cover;
+   
 }
 
 .navbar{
@@ -25,14 +27,16 @@ body{
     height: 50px;
     display: flex;
 }
+
 .vermelho{
     width: 38%;
     height: 100%;
-    background-color: red;
+    background-color: #8D0303;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .branco{
     width: 38%;
     height: 100%;
@@ -41,6 +45,7 @@ body{
     justify-content: center;
     align-items: center;
 }
+
 .preto{
     box-sizing: border-box;
     padding: 0 3rem  0 0;
@@ -50,4 +55,40 @@ body{
     display: flex;
     justify-content: right;
     align-items: center;
+}
+
+.preto button{
+    border-radius: 30px;
+    height: 65%;
+    align-items: center;
+    color: white;
+}
+
+span{
+    color: white;
+}
+
+.texto{
+    color: rgb(0, 0, 0);
+}
+
+.texto2{
+    color: #8D0303;
+}
+
+.preto .cadastro{
+    background-color: #8D0303;
+    
+}
+
+a{
+    text-decoration: none;
+}
+
+.card{
+    display: flex;
+    width: 450px;
+    height: auto;
+    background-color: antiquewhite;
+
 }
