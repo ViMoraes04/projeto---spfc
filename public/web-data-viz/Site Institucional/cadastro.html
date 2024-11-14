@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="login.css">
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="jogadores.html">Jogadores</a>
+            <a href="titulo.html">Títulos</a>
+            <a href="login.html"><button class="botao">Login</button></a>
+        </nav>
+    </header>
+    <div class="tela_cadastro">
+        <h1>Cadastro</h1>
+        <div class="container-input">
+            <input type="text" placeholder="" id="nome_input">
+        </div>
+        <br>
+        <div class="container-input">
+            <input type="text" placeholder="Email" id="email_input">
+        </div>
+        <br>
+        <div class="container-input">
+            <input type="password" placeholder="Senha" id="senha_input">
+        </div>
+        <br>
+        <div class="container-input">
+            <input type="text" placeholder="Confirme a Senha" id="confirmacao_senha_input">
+        </div>
+        <br>
+        <div class="container-input">
+            <p>Seu Jogador Favorito </p>
+            <select id="favoritos">
+                <option value="calleri">Calleri</option>
+                <option value="luciano">Luciano</option>
+                <option value="lucas">Lucas</option>
+                <option value="alisson">Alisson</option>
+                <option value="calleri">Calleri</option>
+                <option value="ferreira">Ferreira</option>
+                <option value="nestor">Nestor</option>
+                <option value="rato">Wellington Rato</option>
+                <option value="rafinha">Rafinha</option>
+                <option value="pablo">Pablo Maia</option>
+                <option value="arboleda">Arboleda</option>
+                <option value="rafael">Rafael</option>
+            </select>
+        </div>
+        <div class="container-idolo">
+            <p>Seu Tíulo Favorito</p>
+            <select id="titulo">
+                <option value="rai">Mundial de Clubes</option>
+                <option value="ceni">Copa Libertaores</option>
+                <option value="lucas">Copa Sul-Americana</option>
+                <option value="alisson">Campeonato Brasileiro</option>
+                <option value="calleri">Campeonato Paulista</option>
+                <option value="ferreira">Copa do Brail</option>
+            </select>
+        </div>
+        <button onclick="cadastrar()" class="botao-tela">Cadastrar</button>
+    </div>
+</body>
+</html>
+<script>
+    function cadastrar() {
+     
+      var nomeVar = nome_input.value;
+      var emailVar = email_input.value;
+      var senhaVar = senha_input.value;
+      var confirmacaoSenhaVar = confirmacao_senha_input.value;
+      var fkFavoritosVar = favoritos.value;
+      var fkTituloFavoritoVar = titulo.value;
+  
+      // Verificando se há algum campo em branco
+      if (
+        nomeVar == "" ||
+        emailVar == "" ||
+        senhaVar == "" ||
+        confirmacaoSenhaVar == "" ||
+        fkFavoritosVar == "" ||
+        fkTituloFavoritoVar == "" 
+      ) {
+    //     cardErro.style.display = "block";
+    //     mensagem_erro.innerHTML =
+    //       "(Mensagem de erro para todos os campos em branco)";
+  
+    //     finalizarAguardar();
+    //     return false;
+    //   } else {
+    //     setInterval(sumirMensagem, 5000);
+    //   }
+      }
+  
+  
+      // Enviando o valor da nova input
+      fetch("/usuarios/cadastrar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          // crie um atributo que recebe o valor recuperado aqui
+          // Agora vá para o arquivo routes/usuario.js
+          nomeServer: nomeVar,
+          emailServer: emailVar,
+          senhaServer: senhaVar,
+          fkFavoritosServer: fkFavoritosVar,
+          fkTituloFavoritoServer: fkTituloFavoritoVar
+        }),
+      })
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
+  
+          if (resposta.ok) {
+            cardErro.style.display = "block";
+  
+            mensagem_erro.innerHTML =
+              "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+  
+            setTimeout(() => {
+              window.location = "login.html";
+            }, "2000");
+          }
+            // limparFormulario();
+            // finalizarAguardar();
+        //   } else {
+        //     throw "Houve um erro ao tentar realizar o cadastro!";
+        //   }
+        })
+    //     .catch(function (resposta) {
+    //       console.log(`#ERRO: ${resposta}`);
+    //       finalizarAguardar();
+    //     });
+  
+    //   return false;
+    // }
+  
+    // // Listando empresas cadastradas 
+    // function listar() {
+    //   fetch("/empresas/listar", {
+    //     method: "GET",
+    //   })
+    //     .then(function (resposta) {
+    //       resposta.json().then((empresas) => {
+    //         empresas.forEach((empresa) => {
+    //           listaEmpresasCadastradas.push(empresa);
+  
+    //           console.log("listaEmpresasCadastradas")
+    //           console.log(listaEmpresasCadastradas[0].codigo_ativacao)
+    //         });
+    //       });
+    //     })
+    //     .catch(function (resposta) {
+    //       console.log(`#ERRO: ${resposta}`);
+    //     });
+    // }
+  
+    // function sumirMensagem() {
+    //   cardErro.style.display = "none";
+    //  } 
+        
+        }    
+  </script>
