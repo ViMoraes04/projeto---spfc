@@ -3,7 +3,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: "Courier New", Courier, monospace;
-  background-image: url(../Imagens/f6alb5sm1fxhytpkawzf.avif);
+  background-image: url(Imagens/f6alb5sm1fxhytpkawzf.avif);
 }
 
 header {
@@ -163,4 +163,40 @@ h1 {
 
 .container-idolo {
   transform: translate(50%, -110%);
+}
+
+.label {
+  text-align: start;
+  width: 73%;
+
+  color: var(--cor-label-inputs-hover-botao);
+
+  font-weight: 700;
+  font-size: 18px;
+
+  pointer-events: none;
+  user-select: none;
+
+  transform: translateY(-31px);
+
+  transition: all 0.2s;
+}
+
+.container-input input {
+  width: 80%;
+  height: 40px;
+  border-radius: 15px;
+  border: none;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.container-input input:focus {
+  border: none;
+  outline: none;
+}
+
+.container-input input:focus + .label,
+input:not(:placeholder-shown) + .label {
+  transform: translateY(-63px);
 }

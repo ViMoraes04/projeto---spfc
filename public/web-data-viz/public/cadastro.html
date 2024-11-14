@@ -21,50 +21,63 @@
     <div class="tela_cadastro">
         <h1>Cadastro</h1>
         <div class="container-input">
+          <div class="label">
+            <label for="ipt_email">Nome:</label>
+        </div>
             <input type="text" placeholder="" id="nome_input">
         </div>
         <br>
         <div class="container-input">
-            <input type="text" placeholder="Email" id="email_input">
+          <div class="label">
+            <label for="ipt_email">Email:</label>
+        </div>
+            <input type="text" placeholder="" id="email_input">
         </div>
         <br>
         <div class="container-input">
-            <input type="password" placeholder="Senha" id="senha_input">
+          <div class="label">
+            <label for="ipt_senha">Senha:</label>
+        </div>
+            <input type="password" placeholder="" id="senha_input">
         </div>
         <br>
         <div class="container-input">
-            <input type="text" placeholder="Confirme a Senha" id="confirmacao_senha_input">
+          <div class="label">
+            <label for="ipt_confirmar">Confirme a Senha:</label>
+        </div>
+            <input type="password" placeholder="" id="confirmacao_senha_input">
         </div>
         <br>
         <div class="container-input">
             <p>Seu Jogador Favorito </p>
             <select id="favoritos">
+                <option value="1">Calleri</option>
+                <option value="3">Luciano</option>
+                <option value="2">Lucas</option>
+                <option value="4">Alisson</option>
                 <option value="calleri">Calleri</option>
-                <option value="luciano">Luciano</option>
-                <option value="lucas">Lucas</option>
-                <option value="alisson">Alisson</option>
-                <option value="calleri">Calleri</option>
-                <option value="ferreira">Ferreira</option>
-                <option value="nestor">Nestor</option>
-                <option value="rato">Wellington Rato</option>
-                <option value="rafinha">Rafinha</option>
-                <option value="pablo">Pablo Maia</option>
-                <option value="arboleda">Arboleda</option>
-                <option value="rafael">Rafael</option>
+                <option value="8">Ferreira</option>
+                <option value="9">Nestor</option>
+                <option value="7">Wellington Rato</option>
+                <option value="6">Rafinha</option>
+                <option value="5">Pablo Maia</option>
+                <option value="10">Arboleda</option>
+                <option value="11">Rafael</option>
             </select>
         </div>
         <div class="container-idolo">
             <p>Seu Tíulo Favorito</p>
             <select id="titulo">
-                <option value="rai">Mundial de Clubes</option>
-                <option value="ceni">Copa Libertaores</option>
-                <option value="lucas">Copa Sul-Americana</option>
-                <option value="alisson">Campeonato Brasileiro</option>
-                <option value="calleri">Campeonato Paulista</option>
-                <option value="ferreira">Copa do Brail</option>
+                <option value="2">Mundial de Clubes</option>
+                <option value="1">Copa Libertaores</option>
+                <option value="6">Copa Sul-Americana</option>
+                <option value="3">Campeonato Brasileiro</option>
+                <option value="5">Campeonato Paulista</option>
+                <option value="4">Copa do Brail</option>
             </select>
         </div>
         <button onclick="cadastrar()" class="botao-tela">Cadastrar</button>
+        <div id="div_mensagem"></div>
     </div>
 </body>
 </html>
@@ -119,9 +132,8 @@
           console.log("resposta: ", resposta);
   
           if (resposta.ok) {
-            cardErro.style.display = "block";
   
-            mensagem_erro.innerHTML =
+            div_mensagem.innerHTML =
               "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
   
             setTimeout(() => {
