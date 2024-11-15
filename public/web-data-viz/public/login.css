@@ -166,28 +166,20 @@ h1 {
 }
 
 .label {
-  text-align: start;
-  width: 73%;
-
-  color: var(--cor-label-inputs-hover-botao);
-
   font-weight: 700;
-  font-size: 18px;
+  font-size: 18px; 
 
   pointer-events: none;
   user-select: none;
 
-  transform: translateY(-31px);
+  transform: translateY(-2px);
 
   transition: all 0.2s;
 }
 
 .container-input input {
-  width: 80%;
-  height: 40px;
   border-radius: 15px;
   border: none;
-  padding: 10px;
   font-size: 18px;
 }
 
