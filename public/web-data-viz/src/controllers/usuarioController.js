@@ -43,8 +43,7 @@ function cadastrar(req, res) {
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
-    var fkFavoritos = req.body.fkFavoritosServer;
-    var fkTituloFavorito = req.body.fkTituloFavoritoServer;
+ 
 
     // Faça as validações dos valores
     if (nome == undefined) {
@@ -53,14 +52,10 @@ function cadastrar(req, res) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
-    } else if (fkFavoritos == undefined) {
-        res.status(400).send("Seu jogador favorito a vincular está undefined!");
-    } else if (fkTituloFavorito == undefined) {
-        res.status(400).send("Seu título favorito a vincular está undefined!");
-    } else {
+     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, senha, fkFavoritos, fkTituloFavorito)
+        usuarioModel.cadastrar(nome, email, senha)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -83,7 +78,7 @@ function registro(req, res) {
     console.log(req.body)
     var fkFavoritos = req.body.fkFavoritosServer;
     var fkTituloFavorito = req.body.fkTituloFavoritoServer;
-    var fkElenco = req.body.fkElencoServer;
+    var fkIdolos = req.body.fkIdolosServer;
 
     // Faça as validações dos valores
     // if (nome == undefined) {
@@ -99,7 +94,7 @@ function registro(req, res) {
     // } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.registro(fkFavoritos, fkTituloFavorito, fkElenco)
+        usuarioModel.registro(fkFavoritos, fkTituloFavorito, fkIdolos)
             .then(
                 function (resultado) {
                     res.json(resultado);
