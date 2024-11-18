@@ -51,17 +51,6 @@
             </select>
         </div>
         <div class="container-input">
-            <p>Seu Ídolo Favorito</p>
-            <select id="idolo">
-                <option value=""disabled selected></option>
-                <option value="2">Rogério Ceni</option>
-                <option value="1">Tele Santana</option>
-                <option value="6">Raí</option>
-                <option value="3">Muricy Ramalho</option>
-                <option value="5">Leônidas</option>
-            </select>
-        </div>
-        <div class="container-input">
             <p>Seu Elenco Favorito</p>
             <select id="elenco">
                 <option value=""disabled selected></option>
@@ -72,8 +61,41 @@
             </select>
         </div>
         <br><br>
-        <button class="botao-tela1">Registrar</button>
+        <button onclick="registro()" class="botao-tela1">Registrar</button>
     </div>
 </body>
 
 </html>
+<script>
+    function registro(){
+
+        var fkFavoritosVar = favoritos.value;
+        var fkTituloFavoritoVar = titulo.value;
+        var fkElencoVar = elenco.value;
+        
+        if (
+        fkFavoritosVar == "" ||
+        fkTituloFavoritoVar == "" ||
+        fkElencoVar == "" 
+      ) {
+
+      }
+
+      fetch("/usuarios/registro", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          // crie um atributo que recebe o valor recuperado aqui
+          // Agora vá para o arquivo routes/usuario.js
+          fkFavoritosServer: fkFavoritosVar,
+          fkTituloFavoritoServer: fkTituloFavoritoVar,
+          fkElencoServer: fkElencoVar
+        }),
+      })
+    }
+
+    
+</script>
+

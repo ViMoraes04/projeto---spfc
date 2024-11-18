@@ -78,7 +78,38 @@ function cadastrar(req, res) {
     }
 }
 
+function registro(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    console.log(req.body)
+    var fkFavoritos = req.body.fkFavoritosServer;
+    var fkTituloFavorito = req.body.fkTituloFavoritoServer;
+    var fkElenco = req.body.fkElencoServer;
+
+    // Faça as validações dos valores
+    // if (nome == undefined) {
+    //     res.status(400).send("Seu nome está undefined!");
+    // } else if (email == undefined) {
+    //     res.status(400).send("Seu email está undefined!");
+    // } else if (senha == undefined) {
+    //     res.status(400).send("Sua senha está undefined!");
+    // } else if (fkFavoritos == undefined) {
+    //     res.status(400).send("Seu jogador favorito a vincular está undefined!");
+    // } else if (fkTituloFavorito == undefined) {
+    //     res.status(400).send("Seu título favorito a vincular está undefined!");
+    // } else {
+
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.registro(fkFavoritos, fkTituloFavorito, fkElenco)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            );
+    }
+
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    registro
 }
