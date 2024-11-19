@@ -70,6 +70,7 @@ a:hover {
   align-items: center;
   color: white !important;
   font-family: 'Times New Roman', Times, serif;
+
 }
 
 h1 {
@@ -81,6 +82,7 @@ h1 {
   justify-content: flex-start;
   margin-bottom: 0;
   transform: translate(2%, -180%);
+  
 
 }
 
@@ -88,7 +90,8 @@ h1 {
   padding: 10px;
   width: 85%;
   border-radius: 20px;
-  border: none;
+  border: 1px solid #fff;
+  background-color: #ffffff57;
 }
 
 .tela_login {
@@ -131,7 +134,9 @@ h1 {
   width: 85%;
   border-radius: 20px;
   border: none;
-  color: transparent;
+  background-color: #ffffff57;
+  border: 1px solid #fff;
+
 }
 
 .container-input {
@@ -172,23 +177,9 @@ h1 {
   pointer-events: none;
   user-select: none;
 
-  transform: translateY(-2px);
+  transform: translateY(-5px);
 
   transition: all 0.2s;
 }
 
-.container-input input {
-  border-radius: 15px;
-  border: none;
-  font-size: 18px;
-}
 
-.container-input input:focus {
-  border: none;
-  outline: none;
-}
-
-.container-input input:focus + .label,
-input:not(:placeholder-shown) + .label {
-  transform: translateY(-63px);
-}

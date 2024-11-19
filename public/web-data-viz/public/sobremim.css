@@ -2,9 +2,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Times New Roman', Times, serif;
-    background-image: url(gifspfc.gif);
-    background-size: cover;
+    background-color: #8D0303;
   }
   
   header {
@@ -38,7 +36,7 @@ body {
   }
   
   a:hover {
-    color: #8d0303;
+    color: #000000;
   }
   
   .botao {
@@ -57,52 +55,30 @@ body {
   
   .botao:hover {
     color: white !important;
-    background: #8d0303;
+    background: #000000;
   }
+ 
 
-  .formulario{
-    background-color: rgba(255, 255, 255, 0.493);
-    width: 30%;
-    margin-left: 450px;
-    margin-top: 70px;
-    border-radius: 20px;
+.container{
+   background-color: rgba(240, 248, 255, 0.548);
+   display: flex;
+   margin-top: 100px;
+   width: 70%;
+   margin-left: 200px;
+   height: 500px;
+   border-radius: 20px;
+}
 
-    
- }
-
- select{
-    width: 100%;
-    padding: 10px;
-    border-radius: 20px;
-    border-color: #8d0303;
-    cursor: pointer;
-
- }
-
- button{
-    width: 40%;
-    padding: 8px;
-    display: flex;
-    margin-left: 110px;
-    border-radius: 20px;
+h2{
     font-family: 'Times New Roman', Times, serif;
-    font-size: 25px;
-    justify-content: center;
-    background-color: #ffffff;
-    cursor: pointer;
-    color: #8d0303;
-    border-color: #8d0303;
- }
- h1{
-  display: flex;
-  justify-content: center;
-  margin-bottom: 50px;
-  
- }
+    font-size: 40px;
+}
 
- p{
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 20px;
-  font-weight: 400;
-  margin-bottom: 0px;
- }
+.texto{
+    width: 50%;
+    font-size: 25px;
+    margin-left: 30px;
+}
+.foto{
+    background-image: url(Imagens/careca.jpg);
+}

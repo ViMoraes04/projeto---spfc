@@ -13,14 +13,16 @@
         <div class="navbar">
             <a href="index.html">Home</a>
             <a href="jogadores.html">Jogadores</a>
+            <a href="idolos.html">Ídolos</a>
             <a href="titulo.html">Títulos</a>
+            <a href="sobremim.html">Sobre Mim</a>
             <a href="cadastro.html"><button class="botao">Cadastro</button></a>
         </div>
     </header>
 
     <div class="formulario">
-        <h1>FOMULÁRIO SPFC</h1>
         <div class="container-input"> 
+            <h1>FOMULÁRIO SPFC</h1>
             <p>Seu Jogador Favorito </p>
             <select id="favoritos">
                 <option value=""disabled selected></option>
@@ -51,7 +53,7 @@
         </div>
         <div class="container-input">
             <p>Seu Ídolo Favorito</p>
-            <select id="elenco">
+            <select id="idolos">
                 <option value=""disabled selected></option>
                 <option value="1">Rogério Ceni</option>
                 <option value="2">Tele Sanatana</option>
@@ -72,12 +74,12 @@
 
         var fkFavoritosVar = favoritos.value;
         var fkTituloFavoritoVar = titulo.value;
-        var fkElencoVar = elenco.value;
+        var fkIdolosVar = idolos.value;
         
         if (
         fkFavoritosVar == "" ||
         fkTituloFavoritoVar == "" ||
-        fkElencoVar == "" 
+        fkIdolosVar == "" 
       ) {
 
       }
@@ -92,7 +94,7 @@
           // Agora vá para o arquivo routes/usuario.js
           fkFavoritosServer: fkFavoritosVar,
           fkTituloFavoritoServer: fkTituloFavoritoVar,
-          fkElencoServer: fkElencoVar
+          fkIdolosServer: fkIdolosVar
         }),
       })
     }
