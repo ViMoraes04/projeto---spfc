@@ -2,7 +2,9 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #8D0303;
+    background-image: url(./Imagens/Morumbi-768x387.png);
+    background-size: cover;
+
   }
   
   header {
@@ -62,7 +64,7 @@ body {
 .container{
    background-color: rgba(240, 248, 255, 0.548);
    display: flex;
-   margin-top: 100px;
+   margin-top: 30px;
    width: 70%;
    margin-left: 200px;
    height: 500px;
@@ -72,12 +74,19 @@ body {
 h2{
     font-family: 'Times New Roman', Times, serif;
     font-size: 40px;
+    display: flex;
+    transform: translateX(180%);
+   
+    
 }
 
 .texto{
     width: 50%;
     font-size: 25px;
-    margin-left: 30px;
+    margin-top: 100px;
+    font-family: 'Times New Roman', Times, serif;
+    transform: translate(-30%, 5%);
+
 }
 .foto{
     background-image: url(Imagens/careca.jpg);
