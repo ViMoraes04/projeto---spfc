@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./formulario.css">
+    <link rel="stylesheet" href="../css/formulario.css">
 </head>
 
 <body>
@@ -21,11 +21,11 @@
     </header>
 
     <div class="formulario">
-        <div class="container-input"> 
+        <div class="container-input">
             <h1>FOMULÁRIO SPFC</h1>
             <p>Seu Jogador Favorito </p>
             <select id="favoritos">
-                <option value=""disabled selected></option>
+                <option value="" disabled selected></option>
                 <option value="1">Calleri</option>
                 <option value="3">Luciano</option>
                 <option value="2">Lucas</option>
@@ -42,7 +42,7 @@
         <div class="container-input">
             <p>Seu Título Favorito</p>
             <select id="titulo">
-                <option value=""disabled selected></option>
+                <option value="" disabled selected></option>
                 <option value="2">Mundial de Clubes</option>
                 <option value="1">Copa Libertaores</option>
                 <option value="6">Copa Sul-Americana</option>
@@ -54,7 +54,7 @@
         <div class="container-input">
             <p>Seu Ídolo Favorito</p>
             <select id="idolos">
-                <option value=""disabled selected></option>
+                <option value="" disabled selected></option>
                 <option value="1">Rogério Ceni</option>
                 <option value="2">Tele Sanatana</option>
                 <option value="3">Raí</option>
@@ -70,35 +70,62 @@
 
 </html>
 <script>
-    function registro(){
+    function registro() {
 
         var fkFavoritosVar = favoritos.value;
         var fkTituloFavoritoVar = titulo.value;
         var fkIdolosVar = idolos.value;
-        
+
         if (
-        fkFavoritosVar == "" ||
-        fkTituloFavoritoVar == "" ||
-        fkIdolosVar == "" 
-      ) {
+            fkFavoritosVar == "" ||
+            fkTituloFavoritoVar == "" ||
+            fkIdolosVar == ""
+        ) {
 
-      }
+        }
 
-      fetch("/usuarios/registro", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          // crie um atributo que recebe o valor recuperado aqui
-          // Agora vá para o arquivo routes/usuario.js
-          fkFavoritosServer: fkFavoritosVar,
-          fkTituloFavoritoServer: fkTituloFavoritoVar,
-          fkIdolosServer: fkIdolosVar
-        }),
-      })
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: sessionStorage.NOME_USUARIO,
+                emailServer: sessionStorage.EMAIL_USUARIO,
+                senhaServer: sessionStorage.SENHA_USUARIO,
+                fkFavoritosServer: fkFavoritosVar,
+                fkTituloFavoritoServer: fkTituloFavoritoVar,
+                fkIdolosServer: fkIdolosVar,
+                
+            }),
+        })
+            .then(function (resposta) {
+                console.log("ESTOU NO THEN DO entrar()!")
+
+                if (resposta.ok) {
+                    console.log(resposta);
+
+                    setTimeout(function () {
+                        window.location = "login.html";
+                    }, 1000); // apenas para exibir o loading
+
+                } else {
+
+                    resposta.text().then(texto => {
+                        console.error(texto);
+                        finalizarAguardar(texto);
+                    });
+                }
+
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+
+
     }
 
-    
-</script>
 
+
+</script>

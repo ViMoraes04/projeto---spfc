@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="../css/login.css">
 
 </head>
 
@@ -107,71 +107,46 @@
     //     setInterval(sumirMensagem, 5000);
     //   }
       }
+
+                sessionStorage.EMAIL_USUARIO = emailVar;
+                sessionStorage.NOME_USUARIO = nomeVar;
+                sessionStorage.SENHA_USUARIO = senhaVar;
   
   
       // Enviando o valor da nova input
-      fetch("/usuarios/cadastrar", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          // crie um atributo que recebe o valor recuperado aqui
-          // Agora vá para o arquivo routes/usuario.js
-          nomeServer: nomeVar,
-          emailServer: emailVar,
-          senhaServer: senhaVar        
-        }),
-      })
-        .then(function (resposta) {
-          console.log("resposta: ", resposta);
+      // fetch("/usuarios/cadastrar", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({
+      //     nomeServer: nomeVar,
+      //     emailServer: emailVar,
+      //     senhaServer: senhaVar        
+      //   }),
+      // })
+      //   .then(function (resposta) {
+      //     console.log("resposta: ", resposta);
   
-          if (resposta.ok) {
-  
+      //     if (resposta.ok) {
+      //       console.log(resposta);
+
+      //       resposta.json().then(json => {
+      //           console.log(json);
+      //           console.log(JSON.stringify(json));
+      //           sessionStorage.EMAIL_USUARIO = json.email;
+      //           sessionStorage.NOME_USUARIO = json.nome;
+      //           sessionStorage.ID_USUARIO = json.id;
+      //         });
+              
             div_mensagem.innerHTML =
               "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
   
             setTimeout(() => {
-              window.location = "login.html";
+              window.location = "formulario.html";
             }, "2000");
           }
-            // limparFormulario();
-            // finalizarAguardar();
-        //   } else {
-        //     throw "Houve um erro ao tentar realizar o cadastro!";
-        //   }
-        })
-    //     .catch(function (resposta) {
-    //       console.log(`#ERRO: ${resposta}`);
-    //       finalizarAguardar();
-    //     });
-  
-    //   return false;
-    // }
-  
-    // // Listando empresas cadastradas 
-    // function listar() {
-    //   fetch("/empresas/listar", {
-    //     method: "GET",
-    //   })
-    //     .then(function (resposta) {
-    //       resposta.json().then((empresas) => {
-    //         empresas.forEach((empresa) => {
-    //           listaEmpresasCadastradas.push(empresa);
-  
-    //           console.log("listaEmpresasCadastradas")
-    //           console.log(listaEmpresasCadastradas[0].codigo_ativacao)
-    //         });
-    //       });
-    //     })
-    //     .catch(function (resposta) {
-    //       console.log(`#ERRO: ${resposta}`);
-    //     });
-    // }
-  
-    // function sumirMensagem() {
-    //   cardErro.style.display = "none";
-    //  } 
         
-        }    
+        
+            
   </script>

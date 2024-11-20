@@ -43,6 +43,11 @@ function cadastrar(req, res) {
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
+    var fkFavoritos = req.body.fkFavoritosServer;
+    var fkTituloFavorito = req.body.fkTituloFavoritoServer;
+    var fkIdolos = req.body.fkIdolosServer;
+    
+
  
 
     // Faça as validações dos valores
@@ -55,7 +60,7 @@ function cadastrar(req, res) {
      } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, senha)
+        usuarioModel.cadastrar(nome, email, senha, fkFavoritos, fkTituloFavorito, fkIdolos)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -79,6 +84,8 @@ function registro(req, res) {
     var fkFavoritos = req.body.fkFavoritosServer;
     var fkTituloFavorito = req.body.fkTituloFavoritoServer;
     var fkIdolos = req.body.fkIdolosServer;
+    var idUsuario = req.body.idUsuario; 
+
 
     // Faça as validações dos valores
     // if (nome == undefined) {
@@ -94,7 +101,7 @@ function registro(req, res) {
     // } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.registro(fkFavoritos, fkTituloFavorito, fkIdolos)
+        usuarioModel.registro(fkFavoritos, fkTituloFavorito, fkIdolos, idUsuario)
             .then(
                 function (resultado) {
                     res.json(resultado);

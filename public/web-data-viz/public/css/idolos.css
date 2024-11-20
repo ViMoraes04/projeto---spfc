@@ -69,7 +69,7 @@ h1{
     margin-top: 60px;
     background-color: #ffffffb2;
     width: 60%;
-    height: 400px;
+    height: 500px;
     border-radius: 20px;
     margin-left: 260px;
   }
@@ -94,7 +94,7 @@ font-family: 'Times New Roman', Times, serif;
     margin-top: 60px;
     background-color: #ffffffb2;
     width: 60%;
-    height: 400px;
+    height: 500px;
     border-radius: 20px;
     margin-left: 260px;
   }
@@ -112,3 +112,41 @@ font-family: 'Times New Roman', Times, serif;
     background-color: #8D0303;
     border: 1px solid #fff;
   }
+
+  .container .ceni .imgceni img{
+    transform: translate(150%, -72%);
+    width: 300px;
+    height: 400px;
+    border-radius: 20px;
+  }
+
+  .container .tele .imgceni img{
+    transform: translate(20%, -52%);
+    width: 300px;
+    height: 400px;
+    border-radius: 20px;
+  }
+  
+  .container .ceni .imgrai img{
+    transform: translate(150%, -61%);
+    width: 300px;
+    height: 400px;
+    border-radius: 20px;
+  }
+
+  .container .ceni .imgzetti img{
+    transform: translate(150%, -52%);
+    width: 300px;
+    height: 400px;
+    border-radius: 20px;
+  }
+
+  .container .tele .imgmuricy img{
+    transform: translate(20%, -65%);
+    width: 300px;
+    height: 390px;
+    border-radius: 20px;
+  }
+
+ 
+ 
