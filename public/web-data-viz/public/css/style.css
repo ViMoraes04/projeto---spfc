@@ -22,6 +22,8 @@ body {
 
 }
 
+
+
 .vermelho {
     width: 38%;
     height: 100%;
@@ -53,6 +55,19 @@ body {
     align-items: center;
 }
 
+.idolos button:hover{
+    transform: translate(-150%, 0);
+    background-color: black;
+    color: white;
+    
+ }
+
+ .idolos button:hover{
+    transform: scale(1.1);
+    transition: all 0.3s;
+ }
+ 
+
 button {
     border-radius: 30px;
     height: 65%;
@@ -66,15 +81,18 @@ button {
 button:hover {
     transform: scale(1.1);
     transition: all 0.3s;
-  }
+}
 
-.logo{
-transform: translate(-350%, 0);
+.trofeu button{
+    background-color: #8D0303;
+    color: white;
+  
 }
 
 .jogadores{
-transform: translate(50%, 0);
+transform: translate(-80%, 0);
 }
+
 
 span {
     color: white;

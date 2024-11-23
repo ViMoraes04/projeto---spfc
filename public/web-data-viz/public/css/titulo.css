@@ -23,6 +23,8 @@ body {
     justify-content: end;
     padding-right: 30px;
     align-items: end;
+    position: fixed;
+    z-index: 1000;
   }
   
   a {
@@ -70,7 +72,7 @@ h1{
     margin-top: 60px;
     background-color: #ffffffb2;
     width: 60%;
-    height: 500px;
+    height: 550px;
     border-radius: 20px;
     margin-left: 260px;
   }
@@ -86,7 +88,7 @@ font-size: 40px;
 display: flex;
 margin-right: 400px;
 margin-top: 70px;
-margin-left: 30px;
+margin-left: 40px;
 font-size: 25px;
 font-family: 'Times New Roman', Times, serif;
   }
@@ -95,7 +97,7 @@ font-family: 'Times New Roman', Times, serif;
     margin-top: 60px;
     background-color: #ffffffb2;
     width: 60%;
-    height: 500px;
+    height: 550px;
     border-radius: 20px;
     margin-left: 260px;
   }
@@ -104,7 +106,7 @@ font-family: 'Times New Roman', Times, serif;
 display: flex;
 margin-left: 400px;
 margin-top: 70px;
-margin-right: 30px;
+margin-right: 40px;
 font-size: 25px;
 font-family: 'Times New Roman', Times, serif;
   }
@@ -112,4 +114,47 @@ font-family: 'Times New Roman', Times, serif;
  h1 .vermeho{
     background-color: #8D0303;
     border: 1px solid #fff;
+  }
+
+  .container .ceni .mundial img{
+    transform: translate(150%, -75%);
+    width: 300px;
+    height: 400px;
+    border-radius: 20px;
+  }
+
+
+  .container .tele .liberta img{
+    transform: translate(20%, -95%);
+    width: 300px;
+    height: 400px;
+    border-radius: 20px;
+  }
+
+  .container .ceni .suda img{
+    transform: translate(150%, -79%);
+    width: 300px;
+    height: 400px;
+    border-radius: 20px;
+  }
+
+  .container .tele .brasileirao img{
+    transform: translate(20%, -73%);
+    width: 300px;
+    height: 400px;
+    border-radius: 20px;
+  }
+
+  .container .ceni .paulista img{
+    transform: translate(150%, -80%);
+    width: 300px;
+    height: 400px;
+    border-radius: 20px;
+  }
+
+  .container .tele .copa img{
+    transform: translate(20%, -79%);
+    width: 300px;
+    height: 400px;
+    border-radius: 20px;
   }

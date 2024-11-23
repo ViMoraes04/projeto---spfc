@@ -3,8 +3,9 @@ body {
     padding: 0;
     box-sizing: border-box;
     font-family: 'Times New Roman', Times, serif;
-    background-image: url(gifspfc.gif);
+    background-image: url(../Imagens/lucano.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
   }
   
   header {
