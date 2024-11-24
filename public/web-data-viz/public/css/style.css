@@ -54,13 +54,13 @@ body {
     justify-content: right;
     align-items: center;
 }
-
-.idolos button:hover{
-    transform: translate(-150%, 0);
+.idolos button{
     background-color: black;
     color: white;
-    
- }
+    transform: translate(-140%, 0%);
+}
+
+
 
  .idolos button:hover{
     transform: scale(1.1);
