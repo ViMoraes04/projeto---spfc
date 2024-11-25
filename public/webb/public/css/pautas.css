@@ -1,0 +1,147 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #000000;
+  }
+  
+  header {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .navbar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 60px;
+    flex-direction: row;
+    justify-content: end;
+    padding-right: 30px;
+    align-items: end;
+    position: fixed;
+    z-index: 1000;
+margin-top: 20px;  }
+  
+  a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5em;
+    font-family: "Times New Roman", Times, serif;
+    cursor: pointer;
+    margin-left: 5px;
+    transition: 0.5s;
+  }
+  
+  a:hover {
+    color: #8D0303;
+  }
+  
+  .botao {
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    width: 130px;
+    height: 40px;
+    cursor: pointer;
+    margin-left: 5px;
+    transition: 0.5s;
+    color: #fff;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+  }
+  
+  .botao:hover {
+    color: white !important;
+    background: #8D0303;
+  }
+
+
+  .container{
+
+    margin-left: 250px;
+  }
+
+  
+  h2{
+    color: #fff;
+    text-shadow: rgb(116, 19, 19) 2px 2px;
+    font-size: 80px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+.texto{
+    margin-right: 250px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    text-align: justify;
+    color: #fff;
+
+}
+
+.pautas{
+width: 80%;
+height: 50%;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: row;
+margin-top: 50px;
+margin-left: 50px;
+}
+
+.esquerda{
+width: 50%;
+height: 100%;
+}
+
+.direita{
+    width: 50%;
+    height: 100%;
+}
+
+
+.pauta1  img{
+    width: 300px;
+    height: 400px;
+    border-radius: 20px;
+   
+}
+  
+  .pauta2  img{
+    width: 300px;
+    height: 400px;
+    border-radius: 20px;
+    margin-top: 80px;
+  }
+
+  
+  .pauta3  img{
+    width: 300px;
+    height: 400px;
+    border-radius: 20px;
+   
+
+  }
+  
+  .pauta4  img{
+    width: 300px;
+    height: 400px;
+    border-radius: 20px;
+    margin-top: 80px;
+    
+   
+  }
+
+  .pauta1 img, .pauta2 img, .pauta3 img, .pauta4 img {
+    transition: transform 0.3s ease;
+  }
+  
+  .pauta1 img:hover, .pauta2 img:hover, .pauta3 img:hover, .pauta4 img:hover {
+    transform: scale(1.1);
+  }
+  

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="./css/graficos.css">
+  <title>Document</title>
+</head>
+
+<body onload="listarTodos()">
+  <header>
+    <div class="navbar">
+      <a href="index.html">Home</a>
+      <a href="jogadores.html">Jogadores</a>
+      <a href="idolos.html">Ídolos</a>
+      <a href="titulo.html">Títulos</a>
+      <a href="sobremim.html">Sobre Mim</a>
+      <a href="pautas.html">Pautas</a>
+
+  </div>
+</header>
+<div class="container">
+  <h1>DASHBOARD</h1>
+    <div class="chart">
+      <h2>JOGADORES FAVORITOS</h2>
+      <canvas id="myChart"></canvas>
+    </div>
+    <div class="chart2">
+      <h2>TÍTULOS FAVORITOS</h2>
+      <canvas id="myChart2"></canvas>
+    </div>
+    <div class="chart3">
+      <h2>ÍDOLOS FAVORITOS</h2>
+      <canvas id="myChart3"></canvas>
+    </div>
+  </div>
+
+</body>
+
+</html>
+<script>
+  var listaJogadores = []
+  var listaQtdJogadores = []
+  var listaTitulos = []
+  var listaQtdTitulos = []
+  var listaIdolos = []
+  var listaQtdIdolos = []
+  function listarJogadores() {
+    fetch("/usuarios/listarJogadores", {
+      method: "GET",
+    }).then((res => {
+      res.json().then((json) => {
+        console.log(json)
+        for (var index = json.length - 1; index >= 0; index--) {
+          listaJogadores.push(json[index].nomeFavorito)
+          listaQtdJogadores.push(json[index].qtdFavoritos)
+        }
+      })
+    }))
+  }
+  function listarTitulos() {
+    fetch("/usuarios/listarTitulos", {
+      method: "GET",
+    }).then((res => {
+      res.json().then((json) => {
+        console.log(json)
+        for (var index = json.length - 1; index >= 0; index--) {
+          listaTitulos.push(json[index].tituloFavorito)
+          listaQtdTitulos.push(json[index].qtdTitulosFavoritos)
+        }
+      })
+    }))
+  }
+  function listarIdolos() {
+    fetch("/usuarios/listarIdolos", {
+      method: "GET",
+    }).then((res => {
+      res.json().then((json) => {
+        console.log(json)
+        for (var index = json.length - 1; index >= 0; index--) {
+          listaIdolos.push(json[index].nomeIdolo)
+          listaQtdIdolos.push(json[index].qtdIdolos)
+        }
+      })
+    }))
+  }
+  let myChart;
+  let myChart2;
+  let myChart3;
+  function listarTodos() {
+    listarJogadores()
+    listarTitulos()
+    listarIdolos()
+    const ctx = document.getElementById("myChart");
+    if (myChart) {
+      myChart.destroy();
+    }
+    myChart = new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: listaJogadores,
+        datasets: [{
+          label: `Jogadores favoritos`,
+          data: listaQtdJogadores,
+          borderWidth: 2,
+          borderColor: "black",
+          backgroundColor: "#8D0303",
+        }],
+      },
+      option: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    });
+    const ctx2 = document.getElementById("myChart2");
+    if (myChart2) {
+      myChart2.destroy();
+    }
+    myChart2 = new Chart(ctx2, {
+      type: "bar",
+      data: {
+        labels: listaTitulos,
+        datasets: [{
+          label: `Titulos favoritos`,
+          data: listaQtdTitulos,
+          borderWidth: 2,
+          borderColor: "black",
+          backgroundColor: "#8D0303",
+        }],
+      },
+      option: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    });
+
+    const ctx3 = document.getElementById("myChart3");
+    if (myChart3) {
+      myChart3.destroy();
+    }
+    myChart3 = new Chart(ctx3, {
+      type: "bar",
+      data: {
+        labels: listaIdolos,
+        datasets: [{
+          label: `Idolos favoritos`,
+          data: listaQtdIdolos,
+          borderWidth: 2,
+          borderColor: "black",
+          backgroundColor: "#8D0303",
+        }],
+      },
+      option: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    });
+  }
+
+</script>

@@ -1,0 +1,147 @@
+/* Reset básico */
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #8D0303;
+  
+}
+
+
+header {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: flex-end;
+    background-color: #8D0303;
+
+}
+
+.navbar {
+    display: flex;
+    width: 100%;
+    gap: 60px;
+    flex-direction: row;
+    justify-content: end;
+    padding-right: 30px;
+    align-items: end;
+    position: fixed;
+    z-index: 1000;
+    margin-top: 15px;
+    background-color: #8D0303;
+    height: 10%;
+    transform: translateY(-55%);
+}
+
+a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 1.5em;
+    font-family: "Times New Roman", Times, serif;
+    cursor: pointer;
+    margin-left: 5px;
+    transition: 0.5s;
+    font-size: 30px;
+}
+
+a:hover {
+    color: #c4c2c2;
+}
+
+
+h1 {
+    color: #ffffff;
+    font-size: 36px;
+    font-weight: bold;
+    background-color: #8D0303;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 30px;
+
+
+}
+
+.chart {
+    width: 80%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.chart2 {
+    width: 30%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+ 
+}
+
+.chart3 {
+    width: 30%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+
+}
+
+.chart h2 {
+    color: #e60000;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.chart2 h2 {
+    color: #e60000;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.chart3 h2 {
+    color: #e60000;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+/* Canvas para gráficos */
+canvas {
+    width: 100% !important;
+    height: auto !important;
+
+
+    .chart {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}
+
+.chart:hover, .chart2:hover, .chart3:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.chart, .chart2, .chart3 {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+

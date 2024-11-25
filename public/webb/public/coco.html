@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="./css/graficos.css">
+  <title>Document</title>
+</head>
+
+<body onload="listarTodos()">
+  <header>
+    <div class="navbar">
+      <a href="index.html">Home</a>
+      <a href="jogadores.html">Jogadores</a>
+      <a href="idolos.html">Ídolos</a>
+      <a href="titulo.html">Títulos</a>
+      <a href="sobremim.html">Sobre Mim</a>
+    </div>
+  </header>
+
+  <h1>Dashboard São Paulo Futebol Clube</h1>
+  
+  <div class="container">
+    <div class="chart">
+      <h2>Jogadores Favoritos</h2>
+      <canvas id="myChart"></canvas>
+    </div>
+    <div class="chart">
+      <h2>Títulos Favoritos</h2>
+      <canvas id="myChart2"></canvas>
+    </div>
+    <div class="chart">
+      <h2>Ídolos Favoritos</h2>
+      <canvas id="myChart3"></canvas>
+    </div>
+  </div>
+
+</body>
+
+</html>
+
+<script>
+  var listaJogadores = []
+  var listaQtdJogadores = []
+  var listaTitulos = []
+  var listaQtdTitulos = []
+  var listaIdolos = []
+  var listaQtdIdolos = []
+
+  function listarJogadores() {
+    fetch("/usuarios/listarJogadores", {
+      method: "GET",
+    }).then((res => {
+      res.json().then((json) => {
+        console.log(json)
+        for (var index = json.length - 1; index >= 0; index--) {
+          listaJogadores.push(json[index].nomeFavorito)
+          listaQtdJogadores.push(json[index].qtdFavoritos)
+        }
+      })
+    }))
+  }
+
+  function listarTitulos() {
+    fetch("/usuarios/listarTitulos", {
+      method: "GET",
+    }).then((res => {
+      res.json().then((json) => {
+        console.log(json)
+        for (var index = json.length - 1; index >= 0; index--) {
+          listaTitulos.push(json[index].tituloFavorito)
+          listaQtdTitulos.push(json[index].qtdTitulosFavoritos)
+        }
+      })
+    }))
+  }
+
+  function listarIdolos() {
+    fetch("/usuarios/listarIdolos", {
+      method: "GET",
+    }).then((res => {
+      res.json().then((json) => {
+        console.log(json)
+        for (var index = json.length - 1; index >= 0; index--) {
+          listaIdolos.push(json[index].nomeIdolo)
+          listaQtdIdolos.push(json[index].qtdIdolos)
+        }
+      })
+    }))
+  }
+
+  let myChart;
+  let myChart2;
+  let myChart3;
+
+  function listarTodos() {
+    listarJogadores()
+    listarTitulos()
+    listarIdolos()
+
+    // Gráfico de Jogadores Favoritos (Horizontal)
+    const ctx = document.getElementById("myChart");
+    if (myChart) {
+      myChart.destroy();
+    }
+    myChart = new Chart(ctx, {
+      type: "bar", // Tipo de gráfico de barras
+      data: {
+        labels: listaJogadores, // Rótulos
+        datasets: [{
+          label: 'Jogadores favoritos',
+          data: listaQtdJogadores, // Dados das barras
+          borderWidth: 2,
+          borderColor: "#4444ff",
+          backgroundColor: "#4444ff",
+        }],
+      },
+      options: {
+        indexAxis: 'y', // Definir barras horizontais
+        responsive: true,
+        scales: {
+          x: {
+            beginAtZero: true, // Inicia o gráfico a partir do zero no eixo X
+          },
+          y: {
+            beginAtZero: true, // Inicia o gráfico a partir do zero no eixo Y
+          }
+        }
+      }
+    });
+
+    // Gráfico de Títulos Favoritos (Horizontal)
+    const ctx2 = document.getElementById("myChart2");
+    if (myChart2) {
+      myChart2.destroy();
+    }
+    myChart2 = new Chart(ctx2, {
+      type: "bar", // Tipo de gráfico de barras
+      data: {
+        labels: listaTitulos, // Rótulos
+        datasets: [{
+          label: 'Títulos favoritos',
+          data: listaQtdTitulos, // Dados das barras
+          borderWidth: 2,
+          borderColor: "#4444ff",
+          backgroundColor: "#4444ff",
+        }],
+      },
+      options: {
+        indexAxis: 'y', // Definir barras horizontais
+        responsive: true,
+        scales: {
+          x: {
+            beginAtZero: true, // Inicia o gráfico a partir do zero no eixo X
+          },
+          y: {
+            beginAtZero: true, // Inicia o gráfico a partir do zero no eixo Y
+          }
+        }
+      }
+    });
+
+    // Gráfico de Ídolos Favoritos (Horizontal)
+    const ctx3 = document.getElementById("myChart3");
+    if (myChart3) {
+      myChart3.destroy();
+    }
+    myChart3 = new Chart(ctx3, {
+      type: "bar", // Tipo de gráfico de barras
+      data: {
+        labels: listaIdolos, // Rótulos
+        datasets: [{
+          label: 'Ídolos favoritos',
+          data: listaQtdIdolos, // Dados das barras
+          borderWidth: 2,
+          borderColor: "#4444ff",
+          backgroundColor: "#4444ff",
+        }],
+      },
+      options: {
+        indexAxis: 'y', // Definir barras horizontais
+        responsive: true,
+        scales: {
+          x: {
+            beginAtZero: true, // Inicia o gráfico a partir do zero no eixo X
+          },
+          y: {
+            beginAtZero: true, // Inicia o gráfico a partir do zero no eixo Y
+          }
+        }
+      }
+    });
+  }
+</script>
