@@ -35,6 +35,10 @@
       <h2>ÍDOLOS FAVORITOS</h2>
       <canvas id="myChart3"></canvas>
     </div>
+    <div style="width: 40%;" class="chart">
+      <h1 id="h1Usuario">Usuários Castrados <br><br></h1>
+
+    </div>
   </div>
 
 </body>
@@ -47,6 +51,9 @@
   var listaQtdTitulos = []
   var listaIdolos = []
   var listaQtdIdolos = []
+  var listaQtdUsuario = []
+
+
   function listarJogadores() {
     fetch("/usuarios/listarJogadores", {
       method: "GET",
@@ -57,6 +64,7 @@
           listaJogadores.push(json[index].nomeFavorito)
           listaQtdJogadores.push(json[index].qtdFavoritos)
         }
+        carregarGraficoJogadores()
       })
     }))
   }
@@ -70,33 +78,15 @@
           listaTitulos.push(json[index].tituloFavorito)
           listaQtdTitulos.push(json[index].qtdTitulosFavoritos)
         }
+
+        carregarGraficoTitulos()
       })
     }))
   }
-  function listarIdolos() {
-    fetch("/usuarios/listarIdolos", {
-      method: "GET",
-    }).then((res => {
-      res.json().then((json) => {
-        console.log(json)
-        for (var index = json.length - 1; index >= 0; index--) {
-          listaIdolos.push(json[index].nomeIdolo)
-          listaQtdIdolos.push(json[index].qtdIdolos)
-        }
-      })
-    }))
-  }
-  let myChart;
-  let myChart2;
-  let myChart3;
-  function listarTodos() {
-    listarJogadores()
-    listarTitulos()
-    listarIdolos()
+
+
+  function carregarGraficoJogadores (){
     const ctx = document.getElementById("myChart");
-    if (myChart) {
-      myChart.destroy();
-    }
     myChart = new Chart(ctx, {
       type: "bar",
       data: {
@@ -109,18 +99,28 @@
           backgroundColor: "#8D0303",
         }],
       },
-      option: {
-        scales: {
-          y: {
-            beginAtZero: true,
-          },
-        },
-      },
+      options: {
+       indexAxis: 'y',
+      }
     });
+  }
+
+  function listarQtdUsuario() {
+    fetch("/usuarios/listaQtdUsuario", {
+      method: "GET",
+    }).then((res => {
+      res.json().then((json) => {
+        console.log(json)
+        h1Usuario.innerHTML += "<span style='font-size:100px'>" + json[0].usuarios + "</span>"
+      })
+    }))
+  }
+
+  listarQtdUsuario()
+
+  function carregarGraficoTitulos(){
     const ctx2 = document.getElementById("myChart2");
-    if (myChart2) {
-      myChart2.destroy();
-    }
+
     myChart2 = new Chart(ctx2, {
       type: "bar",
       data: {
@@ -133,7 +133,7 @@
           backgroundColor: "#8D0303",
         }],
       },
-      option: {
+      options: {
         scales: {
           y: {
             beginAtZero: true,
@@ -141,11 +141,27 @@
         },
       },
     });
+  }
 
+
+  function listarIdolos() {
+    fetch("/usuarios/listarIdolos", {
+      method: "GET",
+    }).then((res => {
+      res.json().then((json) => {
+        console.log(json)
+        for (var index = json.length - 1; index >= 0; index--) {
+          listaIdolos.push(json[index].nomeIdolo)
+          listaQtdIdolos.push(json[index].qtdIdolos)
+        }
+        carregarGraficoIdolos()
+      })
+    }))
+  }
+
+
+  function carregarGraficoIdolos(){
     const ctx3 = document.getElementById("myChart3");
-    if (myChart3) {
-      myChart3.destroy();
-    }
     myChart3 = new Chart(ctx3, {
       type: "bar",
       data: {
@@ -168,4 +184,17 @@
     });
   }
 
+  let myChart;
+  let myChart2;
+  let myChart3;
+  function listarTodos() {
+    listarJogadores()
+    listarTitulos()
+    listarIdolos()
+    // listaQtdUsuario()
+    
+    
+
+    
+  }
 </script>

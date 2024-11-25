@@ -10,7 +10,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #8D0303;
+    background-color: #000000;
   
 }
 
@@ -22,7 +22,7 @@ header {
     height: 80px;
     display: flex;
     justify-content: flex-end;
-    background-color: #8D0303;
+    background-color: #000000;
 
 }
 
@@ -37,14 +37,14 @@ header {
     position: fixed;
     z-index: 1000;
     margin-top: 15px;
-    background-color: #8D0303;
+    background-color: #000000;
     height: 10%;
     transform: translateY(-55%);
 }
 
 a {
     text-decoration: none;
-    color: rgb(0, 0, 0);
+    color: #8D0303;
     font-size: 1.5em;
     font-family: "Times New Roman", Times, serif;
     cursor: pointer;
@@ -60,9 +60,10 @@ a:hover {
 
 h1 {
     color: #ffffff;
-    font-size: 36px;
+    font-size: 50px;
     font-weight: bold;
-    background-color: #8D0303;
+    background-color: #000000;
+    text-shadow: rgb(116, 19, 19) 2px 2px;
 }
 
 .container {
@@ -105,25 +106,33 @@ h1 {
 
 }
 
+#h1Usuario{
+    background-color: transparent;
+    color: #8D0303;
+}
+
 .chart h2 {
-    color: #e60000;
+    color: #8D0303;
     font-size: 22px;
     margin-bottom: 20px;
 }
 
 .chart2 h2 {
-    color: #e60000;
+    color: #8D0303;
     font-size: 22px;
     margin-bottom: 20px;
 }
 
 .chart3 h2 {
-    color: #e60000;
+    color: #8D0303;
     font-size: 22px;
     margin-bottom: 20px;
 }
 
-/* Canvas para gráficos */
+h1 .h1Usuario{
+color: white;
+}
+
 canvas {
     width: 100% !important;
     height: auto !important;

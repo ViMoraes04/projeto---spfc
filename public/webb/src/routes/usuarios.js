@@ -27,4 +27,8 @@ router.get("/listarTitulos", function (req,res){
 router.get("/listarIdolos", function (req,res){
     usuarioController.listarIdolos(req,res)
 })
+router.get("/listaQtdUsuario", function (req,res){
+    usuarioController.listaQtdUsuario(req,res)
+})
+
 module.exports = router;
