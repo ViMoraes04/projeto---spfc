@@ -91,8 +91,7 @@
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
+
                 nomeServer: sessionStorage.NOME_USUARIO,
                 emailServer: sessionStorage.EMAIL_USUARIO,
                 senhaServer: sessionStorage.SENHA_USUARIO,
@@ -110,7 +109,7 @@
 
                     setTimeout(function () {
                         window.location = "login.html";
-                    }, 1000); // apenas para exibir o loading
+                    }, 1000); 
 
                 } else {
 

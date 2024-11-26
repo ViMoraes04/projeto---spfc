@@ -94,6 +94,14 @@ h1 {
   background-color: #ffffff57;
 }
 
+.tela_cadastro .textinho{
+  font-size: 30px;
+  background-color: #36343457;
+  border-radius: 15px;
+  transform: translate(150%, -400%);
+
+}
+
 .tela_login {
   padding: 15px;
   width: 25%;
@@ -181,5 +189,4 @@ h1 {
 
   transition: all 0.2s;
 }
-
 
