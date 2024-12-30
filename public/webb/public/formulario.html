@@ -64,7 +64,10 @@
                 <option value="6">Muricy Ramalho</option>
             </select>
         </div>
+    
         <br><br>
+     
+      
         <button onclick="registro()" class="botao-tela1">Registrar</button>
     </div>
 </body>
@@ -101,27 +104,27 @@
                 
             }),
         })
-            .then(function (resposta) {
-                console.log("ESTOU NO THEN DO entrar()!")
+            // .then(function (resposta) {
+            //     console.log("ESTOU NO THEN DO entrar()!")
 
-                if (resposta.ok) {
-                    console.log(resposta);
+            //     if (resposta.ok) {
+            //         console.log(resposta);
 
                     setTimeout(function () {
                         window.location = "login.html";
                     }, 1000); 
 
-                } else {
+                // } else {
 
                    
+                // }
+
+            // }).catch(function (erro) {
+            //     console.log(erro);
+            // })
+
                 }
-
-            }).catch(function (erro) {
-                console.log(erro);
-            })
-
-
-    }
+    
 
 
 

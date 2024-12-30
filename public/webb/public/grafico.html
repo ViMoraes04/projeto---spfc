@@ -35,11 +35,10 @@
       <h2>ÍDOLOS FAVORITOS</h2>
       <canvas id="myChart3"></canvas>
     </div>
-    <div style="width: 40%;" class="chart">
+  
+    <div style="width: 40%  " class="chart">
       <h1 id="h1Usuario">Usuários Cadastrados <br><br></h1>
-
     </div>
-  </div>
 
 </body>
 
@@ -52,6 +51,7 @@
   var listaIdolos = []
   var listaQtdIdolos = []
   var listaQtdUsuario = []
+
 
 
   function listarJogadores() {
@@ -119,6 +119,7 @@
 
   listarQtdUsuario()
 
+
   function carregarGraficoTitulos(){
     const ctx2 = document.getElementById("myChart2");
 
@@ -160,11 +161,11 @@
     }))
   }
 
-
+// Modificação do gráfico 30/12
   function carregarGraficoIdolos(){
     const ctx3 = document.getElementById("myChart3");
     myChart3 = new Chart(ctx3, {
-      type: "bar",
+      type: "polarArea",
       data: {
         labels: listaIdolos,
         datasets: [{

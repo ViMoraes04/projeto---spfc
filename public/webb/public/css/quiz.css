@@ -1,0 +1,214 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Times New Roman', Times, serif;
+  background-image: url(../css/gifspfc.gif);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+header {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 60px;
+  flex-direction: row;
+  justify-content: end;
+  padding-right: 30px;
+  align-items: end;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5em;
+  font-family: "Times New Roman", Times, serif;
+  cursor: pointer;
+  margin-left: 5px;
+  transition: 0.5s;
+}
+
+a:hover {
+  color: #8d0303;
+}
+
+.botao {
+  background-color: transparent;
+  border: 2px solid #fff;
+  border-radius: 20px;
+  width: 130px;
+  height: 40px;
+  cursor: pointer;
+  margin-left: 5px;
+  transition: 0.5s;
+  color: #fff;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+}
+
+.botao:hover {
+  color: white !important;
+  background: #8d0303;
+}
+
+.pontuacaoEJogo {
+  transform: translateY(10%);
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #080202;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.quiz {
+  text-align: center;
+}
+
+#btnIniciarQuiz {
+  background-color: #e60000; 
+  color: white;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#btnIniciarQuiz:hover {
+  background-color: #cc0000;
+}
+
+#pontuacao {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: space-between;
+}
+
+#pontuacaoDuranteJogo, #pontuacaoFinalJogo {
+  margin-bottom: 15px;
+}
+
+#pontuacaoFinalJogo {
+  font-weight: bold;
+  color: #e60000; 
+}
+
+#jogo {
+  margin-top: 30px;
+}
+
+#infoQuestao {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+#perguntaDaQuestaoAtual {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+#infoAlternativas {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+#opcoes {
+  margin-bottom: 20px;
+}
+
+#opcoes input[type="radio"] {
+  margin-right: 10px;
+}
+
+.option {
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.2s ease;
+}
+
+.option:hover {
+  color: #e60000; /* Cor do SPFC */
+}
+
+#botoes button {
+  background-color: #e60000; 
+  color: white;
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin: 5px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: end;
+  margin-top: 30px;
+  margin-left: 20px;
+}
+
+
+
+/* Feedback de Resultado */
+#pontuacaoFinalJogo .width-fit-content {
+  font-size: 1.5rem;
+}
+
+#msgFinal {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #28a745; /* Cor verde para mensagem de vitória */
+}
+
+/* Adicionando bordas e sombras em elementos */
+#pontuacao, #jogo {
+  border: 2px solid #e60000; /* Borda vermelha em todas as áreas importantes */
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+#pontuacaoFinalJogo {
+  border-top: 2px solid #e60000;
+}
+
+/* Alterando o design das alternativas */
+#opcoes input[type="radio"]:checked + label {
+  background-color: #e60000;
+  color: #fff;
+  font-weight: bold;
+}
+
+#opcoes label {
+  display: block;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#opcoes label:hover {
+  background-color: #e60000;
+  color: #fff;
+}

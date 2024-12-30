@@ -82,8 +82,9 @@ function registro(req, res) {
     var fkTituloFavorito = req.body.fkTituloFavoritoServer;
     var fkIdolos = req.body.fkIdolosServer;
     var idUsuario = req.body.idUsuario; 
+    var idVisita = req.body.idVisita;
 
-        usuarioModel.registro(fkFavoritos, fkTituloFavorito, fkIdolos, idUsuario)
+        usuarioModel.registro(fkFavoritos, fkTituloFavorito, fkIdolos, idUsuario, idVisita)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -112,6 +113,8 @@ function registro(req, res) {
           res.status(200).json(resultado)
         }))
       }
+
+    
 module.exports = {
     autenticar,
     cadastrar,
@@ -120,4 +123,5 @@ module.exports = {
     listarTitulos,
     listarIdolos, 
     listaQtdUsuario
+  
 }

@@ -18,6 +18,11 @@ idIdolos INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(45)
 );
 
+CREATE TABLE Visitas(
+idVisita INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(45)
+);
+
 
 CREATE TABLE Usuario(
 idUsuario INT PRIMARY KEY AUTO_INCREMENT,
@@ -64,6 +69,10 @@ INSERT INTO Titulos VALUES
 (default, 'Copa do Brasil', 1),
 (default, 'Campeonato Paulista', 22),
 (default, 'Copa Sul-Americana', 1);
+
+
+
+
 
 INSERT INTO Usuario (nome, email, senha, fkFavoritos, fkTituloFavorito) VALUES 
 ()

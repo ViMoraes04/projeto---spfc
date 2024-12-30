@@ -31,4 +31,7 @@ router.get("/listaQtdUsuario", function (req,res){
     usuarioController.listaQtdUsuario(req,res)
 })
 
+
+
+
 module.exports = router;

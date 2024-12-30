@@ -1,3 +1,4 @@
+const { listaQtdVisita } = require("../controllers/usuarioController");
 var database = require("../database/config")
 
 
@@ -86,6 +87,9 @@ ORDER BY
 `;
 return database.executar(instrucaoSql);
 }
+
+
+
 
 module.exports = {
     autenticar,
