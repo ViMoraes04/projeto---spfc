@@ -1,14 +1,14 @@
 
 /* Página de Gráficos */
 .dash-header {
-  background-color: #212124;
+  background-color: #8D0303;
 }
 
 .dash {
   width: 80%;
   position: relative;
   left: 20%;
-  background-color: #161618;
+  background-color: #000000;
   height: 100vh;
   overflow: auto;
  
@@ -29,13 +29,15 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  border-right: 3px solid #fa4f00;
-  background-color: #212124;
+  border-right: 3px solid #8D0303;
+  background-color: #000000;
 }
 
 .header-left h1 {
-  color: #fa4f00;
-  font-family: "Great Vibes", cursive;
+  color: #8D0303;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 50px;
+  margin-left: 10px;
 }
 
 .hello {
@@ -45,47 +47,43 @@
 }
 
 .hello h3 {
-  color: #e3b062;
+  color: #8D0303;
   font-weight: 300;
-  font-size: 1.2rem;
+  font-size: 30px;
+  font-family: 'Times New Roman', Times, serif;
+  
 }
 
 .hello h3 span {
   font-weight: 800;
 }
 
-.btn-nav,
+
 .btn-logout {
   color: white;
-  background-color: #fa4f00;
+  background-color: #000000;
   border-radius: 5px;
   text-align: center;
   padding: 2% 5%;
   cursor: pointer;
-}
-
-.btn-nav-white {
-  background-color: white;
-  border: 3px solid #fa4f00;
-  border-radius: 5px;
-  text-align: center;
-  padding: 2% 5%;
-}
-
-.btn-nav-white h3 {
-  color: #fa4f00;
-  margin: 0;
+  margin-top: 35px;
 }
 
 .btn-logout {
   width: 20%;
-  background-color: #fa4f00;
+  background-color: #8D0303;
   margin-bottom: 100px;
   padding: 10px 15px;
+
 }
 
 .btn-logout h3 {
   margin: 0;
+}
+
+.btn-logout a{
+    text-decoration: none;
+    color: white;
 }
 
 .charts {
@@ -100,14 +98,15 @@
   align-items: center; 
   margin: 20px auto; 
   max-width: 400px; 
+
 }
 
 .chart-container h2 {
   text-align: center;
-  font-size: 24px;
+  font-size: 40px;
   font-weight: bold;
   margin-bottom: 15px; 
-  color: #ffffff;
+  color: #8D0303;
 }
 
 #kpiChart {
@@ -120,11 +119,10 @@
   margin-top: 20px; 
   font-size: 18px; 
   font-weight: bold; 
-  color: #4CAF50; 
+  color: #8D0303; 
   text-align: center;
-  border: 2px solid #4CAF50; 
+  border: 2px solid #8D0303; 
   padding: 10px; 
   border-radius: 8px; 
-  background-color: #f9f9f9; 
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
 }

@@ -15,10 +15,10 @@
 
     <div class="janela">
         <div class="header-left">
-            <h1>AquaTech</h1>
+            <h1>SÃO PAULO FUTEBOL CLUBE</h1>
 
             <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+                <h3>Olá, <span id="b_usuario">Usuário</span>!</h3>
             </div>
 
            <div class="btn-logout">
@@ -27,9 +27,8 @@
         </div>
 
         <div class="dash">
-            
             <div class="chart-container">
-                <h2>Questões</h2>
+                <h2>SEU RESULTADO</h2>
                 <canvas id="kpiChart"></canvas>
                 <div id="kpideStatus"></div> 
             </div>
@@ -52,6 +51,7 @@
         var porcentagem = (acertos / totalQuestoes) * 100;
         var erros = totalQuestoes - acertos;
 
+
         // Gráfico de doughnut "rosquinha" 09/01
         var kpiCtx = document.getElementById('kpiChart').getContext('2d');
         new Chart(kpiCtx, {
@@ -60,7 +60,7 @@
                 labels: ['Acertos', 'Erros'],
                 datasets: [{
                     data: [acertos, erros],
-                    backgroundColor: ['#4CAF50', '#F44336']
+                    backgroundColor: ['#4CAF50', '#8D0303']
                 }]
             },
     options: {
@@ -88,11 +88,11 @@
         if (erros === 0) {
             status = 'Fanático pelo Tricolor!';
         } else if (erros < 2) {
-            status = 'Bom torcedor';
+            status = 'bom torcedor';
             kpiStatus.textContent = `Parabéns!! Você é um ${status} !!`;
         } else {
-            status = 'Torcedor comum';
-            kpiStatus.textContent = `Você está se mostrando ser um ${status}`;
+            status = 'torcedor comum';
+            kpiStatus.textContent = `Você é um ${status}`;
         }
 
     };
