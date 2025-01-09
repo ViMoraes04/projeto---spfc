@@ -18,11 +18,19 @@ idIdolos INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(45)
 );
 
-CREATE TABLE Visitas(
-idVisita INT PRIMARY KEY AUTO_INCREMENT,
-nome VARCHAR(45)
+CREATE TABLE Quiz(
+	idQuiz INT PRIMARY KEY AUTO_INCREMENT,
+	titulo VARCHAR(100)
 );
 
+CREATE TABLE Opcao(
+idOpcao INT,
+fkUsuario INT,
+fkQuiz INT,
+CONSTRAINT fkUsuario_Opcao FOREIGN KEY(fkUsuario) REFERENCES Usuario(idUsuario),
+CONSTRAINT fkQuiz_Opcao FOREIGN KEY (fkQuiz) REFERENCES Quiz(idQuiz),
+CONSTRAINT pkOpcao PRIMARY KEY(idOpcao, fkUsuario, fkQuiz)
+);
 
 CREATE TABLE Usuario(
 idUsuario INT PRIMARY KEY AUTO_INCREMENT,

@@ -44,13 +44,10 @@
     
    
     window.onload = () => {
-        
-
         var acertos = parseInt(sessionStorage.getItem('acertos') || '0');
         var totalQuestoes = parseInt(sessionStorage.getItem('totalQuestoes') || '1');
         var porcentagem = (acertos / totalQuestoes) * 100;
         var erros = totalQuestoes - acertos;
-
 
         // Gráfico de doughnut "rosquinha" 09/01
         var kpiCtx = document.getElementById('kpiChart').getContext('2d');
