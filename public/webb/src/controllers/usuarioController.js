@@ -15,7 +15,7 @@ function autenticar(req, res) {
             .then(
                 function (resultadoAutenticar) {
                     console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
-                    console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); 
+                    console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`);
 
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
@@ -45,9 +45,7 @@ function cadastrar(req, res) {
     var fkFavoritos = req.body.fkFavoritosServer;
     var fkTituloFavorito = req.body.fkTituloFavoritoServer;
     var fkIdolos = req.body.fkIdolosServer;
-    
 
- 
 
     if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
@@ -55,7 +53,7 @@ function cadastrar(req, res) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
-     } else {
+    } else {
 
         usuarioModel.cadastrar(nome, email, senha, fkFavoritos, fkTituloFavorito, fkIdolos)
             .then(
@@ -81,47 +79,62 @@ function registro(req, res) {
     var fkFavoritos = req.body.fkFavoritosServer;
     var fkTituloFavorito = req.body.fkTituloFavoritoServer;
     var fkIdolos = req.body.fkIdolosServer;
-    var idUsuario = req.body.idUsuario; 
+    var idUsuario = req.body.idUsuario;
     var idVisita = req.body.idVisita;
 
-        usuarioModel.registro(fkFavoritos, fkTituloFavorito, fkIdolos, idUsuario, idVisita)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
-                }
-            );
-    }
-    function listarJogadores(req,res){
-        usuarioModel.listarJogadores(req,res).then((resultado => {
-          res.status(200).json(resultado)
-        }))
-      }
-    
-      function listarTitulos(req,res){
-        usuarioModel.listarTitulos(req,res).then((resultado => {
-          res.status(200).json(resultado)
-        }))
-      }
+    usuarioModel.registro(fkFavoritos, fkTituloFavorito, fkIdolos, idUsuario, idVisita)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        );
+}
+function listarJogadores(req, res) {
+    usuarioModel.listarJogadores(req, res).then((resultado => {
+        res.status(200).json(resultado)
+    }))
+}
 
-      function listarIdolos(req,res){
-        usuarioModel.listarIdolos(req,res).then((resultado => {
-          res.status(200).json(resultado)
-        }))
-      }
-      function listaQtdUsuario(req,res){
-        usuarioModel.listaQtdUsuario(req,res).then((resultado => {
-          res.status(200).json(resultado)
-        }))
-      }
+function listarTitulos(req, res) {
+    usuarioModel.listarTitulos(req, res).then((resultado => {
+        res.status(200).json(resultado)
+    }))
+}
 
-    
+function listarIdolos(req, res) {
+    usuarioModel.listarIdolos(req, res).then((resultado => {
+        res.status(200).json(resultado)
+    }))
+}
+function listaQtdUsuario(req, res) {
+    usuarioModel.listaQtdUsuario(req, res).then((resultado => {
+        res.status(200).json(resultado)
+    }))
+}
+
+// Definindo a função quiz 09/01
+function quiz(req, res) {
+    var Quiz = req.body.QuizServer;
+    var idUsuario = req.body.idUsuarioServer;
+
+    quizModel.quiz(Quiz, idUsuario)
+        .then(function (resultado) {
+            res.status(201).json(resultado);
+        })
+        .catch(function (erro) {
+            console.log(erro);
+            console.log("\nHouve um erro ao realizar a inserção do quiz! Erro: ", erro);
+            res.status(500).json({ error: erro.sqlMessage });
+        })
+}
+
 module.exports = {
     autenticar,
     cadastrar,
     registro,
     listarJogadores,
     listarTitulos,
-    listarIdolos, 
-    listaQtdUsuario
-  
+    listarIdolos,
+    listaQtdUsuario,
+    quiz
 }

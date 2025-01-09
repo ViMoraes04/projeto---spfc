@@ -1,11 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Quiz SPFC</title>
+
+    <link rel="stylesheet" href="./css/dash2.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
-    
+
+    <div class="janela">
+        <div class="header-left">
+            <h1>AquaTech</h1>
+
+            <div class="hello">
+                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+            </div>
+
+           <div class="btn-logout">
+            <a href="index.html"><h3>Sair</h3></a>
+            </div>
+        </div>
+
+        <div class="dash">
+            
+            <div class="chart-container">
+                <h2>Questões</h2>
+                <canvas id="kpiChart"></canvas>
+                <div id="kpideStatus"></div> 
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
+
+<script>
+    
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    
+   
+    window.onload = () => {
+        
+
+        var acertos = parseInt(sessionStorage.getItem('acertos') || '0');
+        var totalQuestoes = parseInt(sessionStorage.getItem('totalQuestoes') || '1');
+        var porcentagem = (acertos / totalQuestoes) * 100;
+        var erros = totalQuestoes - acertos;
+
+        // Gráfico de doughnut "rosquinha" 09/01
+        var kpiCtx = document.getElementById('kpiChart').getContext('2d');
+        new Chart(kpiCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Acertos', 'Erros'],
+                datasets: [{
+                    data: [acertos, erros],
+                    backgroundColor: ['#4CAF50', '#F44336']
+                }]
+            },
+    options: {
+        plugins: {
+            legend: {
+                labels: {
+                    color: 'white',
+                }
+            },
+            tooltip: {
+                callbacks: {
+                    label: function (context) {
+                        return `${context.label}: ${context.raw}`;
+                    }
+                }
+            }
+        }
+    }
+});
+
+
+        var status = '';
+        var kpiStatus = document.getElementById('kpideStatus');
+
+        if (erros === 0) {
+            status = 'Fanático pelo Tricolor!';
+        } else if (erros < 2) {
+            status = 'Bom torcedor';
+            kpiStatus.textContent = `Parabéns!! Você é um ${status} !!`;
+        } else {
+            status = 'Torcedor comum';
+            kpiStatus.textContent = `Você está se mostrando ser um ${status}`;
+        }
+
+    };
+</script>

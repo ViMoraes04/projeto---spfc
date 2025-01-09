@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Quiz SPFC</title>
+    <title>Quiz SPFC</title>
 
-  <link rel="stylesheet" href="./css/quiz.css">
+    <link rel="stylesheet" href="./css/quiz.css">
 
 </head>
 
@@ -27,91 +27,95 @@
 
 
 
-  <body>
     <body>
-        <div id="pontuacaoEJogo" class="pontuacaoEJogo">
-            <div class="quiz" id="quizIntro">
-                <!-- Só mostra o botão para iniciar o quiz 30/12 -->
-                <button onclick="iniciarQuiz()" id="btnIniciarQuiz">INICIAR QUIZ</button>
-            </div>
-            <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
-                <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
-                    <span class="width-fit-content">Quantidade de acertos: <span id="spanCertas"></span></span>
-                    <br>
-                    <span class="width-fit-content">Quantidade de erros: <span id="spanErradas"></span></span>
+
+        <body>
+            <div id="pontuacaoEJogo" class="pontuacaoEJogo">
+                <div class="quiz" id="quizIntro">
+                    <!-- Só mostra o botão para iniciar o quiz 30/12 -->
+                    <button onclick="iniciarQuiz()" id="btnIniciarQuiz">INICIAR QUIZ</button>
                 </div>
-                <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
-                    <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
-                        <span id="spanPontuacaoFinal">***</span>
-                    </span>
-                    <span id="msgFinal" class="width-fit-content">***</span>
+                <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
+                    <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
+                        <span class="width-fit-content">Quantidade de acertos: <span id="spanCertas"></span></span>
+                        <br>
+                        <span class="width-fit-content">Quantidade de erros: <span id="spanErradas"></span></span>
+                    </div>
+                    <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
+                        <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
+                            <span id="spanPontuacaoFinal">***</span>
+                        </span>
+                        <span id="msgFinal" class="width-fit-content">***</span>
+                    </div>
                 </div>
-            </div>
-            <br><br>
-            <div id="jogo" class="width-fit-content flex-colunar border-secondary" style="display: none;">
-                <!-- Perguntas só aparecem depois de iniciar o quiz 30/12-->
-                <div id="infoQuestao" class="padding-8">
-                    <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span id="qtdQuestoes"></span>
-                        questões.</span>
+                <br><br>
+                <div id="jogo" class="width-fit-content flex-colunar border-secondary" style="display: none;">
+                    <!-- Perguntas só aparecem depois de iniciar o quiz 30/12-->
+                    <div id="infoQuestao" class="padding-8">
+                        <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span
+                                id="qtdQuestoes"></span>
+                            questões.</span>
                         <br><br>
+                    </div>
+
+                    <div id="perguntaDaQuestaoAtual" class="padding-8">
+                        <span id="spanQuestaoExibida" class="text-bold"></span>
+                    </div>
+
+                    <div id="infoAlternativas" class="padding-8">
+                        <span><em>Escolha uma opção dentre as abaixo:</em></span>
+                    </div>
+
+                    <div id="opcoes" class="flex-colunar padding-8">
+                        <span>
+                            <input type="radio" id="primeiraOpcao" name="option" class="radio" value="alternativaA" />
+                            <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
+                        </span>
+                        <span>
+                            <input type="radio" id="segundaOpcao" name="option" class="radio" value="alternativaB" />
+                            <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
+                        </span>
+                        <span>
+                            <input type="radio" id="terceiraOpcao" name="option" class="radio" value="alternativaC" />
+                            <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
+                        </span>
+                        <span>
+                            <input type="radio" id="quartaOpcao" name="option" class="radio" value="alternativaD" />
+                            <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
+                        </span>
+                    </div>
+
+                    <div id="botoes" class="flex-colunar padding-8">
+                        <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
+                        <br>
+                        <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
+                        <br>
+                        <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
+                        <a href="dash2.html"> <button onclick="cadastrarResposta()" id="btnConcluir" disabled>Ver
+                                Resultado</button></a>
+                    </div>
+
                 </div>
-    
-                <div id="perguntaDaQuestaoAtual" class="padding-8">
-                    <span id="spanQuestaoExibida" class="text-bold"></span>
-                </div>
-                
-                <div id="infoAlternativas" class="padding-8">
-                    <span><em>Escolha uma opção dentre as abaixo:</em></span>
-                </div>
-    
-                <div id="opcoes" class="flex-colunar padding-8">
-                    <span>
-                        <input type="radio" id="primeiraOpcao" name="option" class="radio" value="alternativaA" />
-                        <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
-                    </span>
-                    <span>
-                        <input type="radio" id="segundaOpcao" name="option" class="radio" value="alternativaB" />
-                        <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
-                    </span>
-                    <span>
-                        <input type="radio" id="terceiraOpcao" name="option" class="radio" value="alternativaC" />
-                        <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
-                    </span>
-                    <span>
-                        <input type="radio" id="quartaOpcao" name="option" class="radio" value="alternativaD" />
-                        <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
-                    </span>
-                </div>
-    
-                <div id="botoes" class="flex-colunar padding-8">
-                    <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
-                    <br>
-                    <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
-                    <br>
-                    <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
-                   <a href="dash2.html"> <button onclick="cadastrarResposta()" id="btnConcluir" disabled>Ver Resultado</button></a>
-                </div>
-    
             </div>
-        </div>
+        </body>
+
     </body>
-    
-</body>
 
 </html>
 <script>
     function iniciarQuiz() {
-    // Esconde a introdução (botão iniciar quiz) 30/12
-    document.getElementById("quizIntro").style.display = "none";
+        // Esconde a introdução (botão iniciar quiz) 30/12
+        document.getElementById("quizIntro").style.display = "none";
 
-    // Mostra o quiz com as perguntas 30/12
-    document.getElementById("jogo").style.display = "block";
+        // Mostra o quiz com as perguntas 30/12
+        document.getElementById("jogo").style.display = "block";
 
     }
 
     const listaDeQuestoes = [
 
-        { id:1,
+        {
+            id: 1,
             pergunta: "Em que ano o São Paulo surgiu?",
             alternativaA: "1910",
             alternativaB: "1920",
@@ -120,7 +124,8 @@
             alternativaCorreta: "alternativaD"
         },
 
-        {id:2,
+        {
+            id: 2,
             pergunta: "Em que ano o São Paulo ganhou a Copa do Brasil?",
             alternativaA: "2020",
             alternativaB: "2023",
@@ -129,7 +134,8 @@
             alternativaCorreta: "alternativaB"
         },
 
-        {id:3,
+        {
+            id: 3,
             pergunta: "Qual é o nome do estádio do São Paulo Futebol Clube?",
             alternativaA: "Pacaembu",
             alternativaB: "Allianz Parque",
@@ -138,7 +144,8 @@
             alternativaCorreta: "alternativaD"
         },
 
-        {id:4,
+        {
+            id: 4,
             pergunta: "Em que ano o São Paulo conquistou o Mundial de Clubes da FIFA pela primeira vez?",
             alternativaA: "1990",
             alternativaB: "2001",
@@ -147,7 +154,8 @@
             alternativaCorreta: "alternativaC"
         },
 
-        {id:5,
+        {
+            id: 5,
             pergunta: "Quem é o maior artilheiro da história do São Paulo Futebol Clube?",
             alternativaA: "Luís Fabiano",
             alternativaB: "Rogério Ceni",
@@ -156,7 +164,8 @@
             alternativaCorreta: "alternativaB"
         },
 
-        {id:6,
+        {
+            id: 6,
             pergunta: "Quantos títulos do Campeonato Brasileiro o São Paulo Futebol Clube conquistou até 2024?",
             alternativaA: "15",
             alternativaB: "20",
@@ -165,7 +174,8 @@
             alternativaCorreta: "alternativaD"
         },
 
-        {id:7,
+        {
+            id: 7,
             pergunta: "Qual jogador do São Paulo é conhecido como M1TO?",
             alternativaA: "Kaka",
             alternativaB: "Hernanes",
@@ -174,7 +184,8 @@
             alternativaCorreta: "alternativaC"
         },
 
-        {id:8,
+        {
+            id: 8,
             pergunta: "Quem foi o técnico do São Paulo quando o clube conquistou a tríplice coroa em 2005?",
             alternativaA: "Muricy Ramalho",
             alternativaB: "Telê Santana",
@@ -182,9 +193,9 @@
             alternativaD: "Paulo Autuori",
             alternativaCorreta: "alternativaB"
         },
-     
+
     ]
-        
+
     // variáveis globais    
     let numeroDaQuestaoAtual = 0
     let pontuacaoFinal = 0
@@ -192,7 +203,7 @@
     let certas = 0
     let erradas = 0
     let quantidadeDeQuestoes = listaDeQuestoes.length
-    
+
 
     function iniciarQuiz() {
         document.getElementById('pontuacao').style.display = "flex"
@@ -203,11 +214,29 @@
 
         preencherHTMLcomQuestaoAtual(0)
 
-// false porque tem que clicar em iniciar primeiro
+        // false porque tem que clicar em iniciar primeiro
         btnSubmeter.disabled = false
         btnProx.disabled = false
         btnConcluir.disabled = false
         btnTentarNovamente.disabled = false
+
+// Enviando os dados 09/01
+        fetch("/usuarios/quiz", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                QuizServer: Quiz,
+                idUsuarioServer: sessionStorage.ID_USUARIO
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+            })
+
+        return false;
+
     }
 
     function preencherHTMLcomQuestaoAtual(index) {
@@ -237,7 +266,7 @@
             }
         }
 
-        if (!hasChecked) { 
+        if (!hasChecked) {
             alert("Não há alternativas escolhidas. Escolha uma opção.")
         } else {
             btnSubmeter.disabled = true
@@ -280,7 +309,7 @@
         // atualiza a página
         window.location.reload()
     }
-   
+
     function checarResposta() {
         const questaoAtual = listaDeQuestoes[numeroDaQuestaoAtual] // questão atual 
         const respostaQuestaoAtual = questaoAtual.alternativaCorreta // qual é a resposta correta da questão atual
@@ -346,18 +375,25 @@
             classComCoresParaMensagemFinal = "text-warning-with-bg"
         }
         else if (porcentagemFinalDeAcertos >= 0.9) {
-            textoParaMensagemFinal = "Uau, você ´´e um ótimo torcedor"
+            textoParaMensagemFinal = "Uau, você é um ótimo torcedor"
             classComCoresParaMensagemFinal = "text-success-with-bg"
         }
-        
-        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos)*100) + "% das questões."
+
+        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos) * 100) + "% das questões."
 
 
         document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
-        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal) 
+        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal)
         document.getElementById('spanPontuacaoFinal').innerHTML = pontuacaoFinal
 
-        document.getElementById('jogo').classList.add("text-new-gray") 
+        document.getElementById('jogo').classList.add("text-new-gray")
+
+     // Aqui salva todos os dados 09/01
+    sessionStorage.setItem('acertos', pontuacaoFinal);
+    sessionStorage.setItem('totalQuestoes', quantidadeDeQuestoes);
+
+    // Redirecionar para dashboard do quiz 09/01
+    window.location.href = "./dash2.html";
 
     }
 </script>
