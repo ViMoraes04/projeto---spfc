@@ -35,7 +35,6 @@
             </div>
 
             <div class="kpi-container">
-                <!-- Adicionadas classes específicas para estilização -->
                 <div class="kpi kpi-acerto">
                     <h3>Porcentagem de Acertos</h3>
                     <p id="acertosKpi">0%</p>
@@ -56,10 +55,9 @@
     window.onload = () => {
         var acertos = parseInt(sessionStorage.getItem('acertos') || '0');
         var totalQuestoes = parseInt(sessionStorage.getItem('totalQuestoes') || '1');
-
-
         var porcentagemAcertos = ((acertos / totalQuestoes) * 100).toFixed(1);
         var erros = totalQuestoes - acertos;
+
         // Calcula a porcentagem de erros 16/01
         var porcentagemErros = ((erros / totalQuestoes) * 100).toFixed(1);
 
@@ -88,7 +86,7 @@
                     tooltip: {
                         callbacks: {
                             label: function (context) {
-                                // Exibe a porcentagem no gráfico 16/01
+                                // Mostra a porcentagem no gráfico 16/01
                                 return `${context.label}: ${context.raw}%`;
                             }
                         }
