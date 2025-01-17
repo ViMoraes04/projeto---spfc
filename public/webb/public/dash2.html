@@ -12,7 +12,6 @@
 </head>
 
 <body>
-
     <div class="janela">
         <div class="header-left">
             <h1>SÃO PAULO FUTEBOL CLUBE</h1>
@@ -21,8 +20,10 @@
                 <h3>Olá, <span id="b_usuario">Usuário</span>!</h3>
             </div>
 
-           <div class="btn-logout">
-            <a href="index.html"><h3>Sair</h3></a>
+            <div class="btn-logout">
+                <a href="index.html">
+                    <h3>Sair</h3>
+                </a>
             </div>
         </div>
 
@@ -30,24 +31,41 @@
             <div class="chart-container">
                 <h2>SEU RESULTADO</h2>
                 <canvas id="kpiChart"></canvas>
-                <div id="kpideStatus"></div> 
+                <div id="kpideStatus"></div>
+            </div>
+
+            <div class="kpi-container">
+                <!-- Adicionadas classes específicas para estilização -->
+                <div class="kpi kpi-acerto">
+                    <h3>Porcentagem de Acertos</h3>
+                    <p id="acertosKpi">0%</p>
+                </div>
+                <div class="kpi kpi-error">
+                    <h3>Porcentagem de Erros</h3>
+                    <p id="errosKpi">0%</p>
+                </div>
             </div>
         </div>
     </div>
 </body>
 
-</html>
 
 <script>
-    
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-    
-   
+
     window.onload = () => {
         var acertos = parseInt(sessionStorage.getItem('acertos') || '0');
         var totalQuestoes = parseInt(sessionStorage.getItem('totalQuestoes') || '1');
-        var porcentagem = (acertos / totalQuestoes) * 100;
+
+
+        var porcentagemAcertos = ((acertos / totalQuestoes) * 100).toFixed(1);
         var erros = totalQuestoes - acertos;
+        // Calcula a porcentagem de erros 16/01
+        var porcentagemErros = ((erros / totalQuestoes) * 100).toFixed(1);
+
+        // Atualiza os valores das KPIs de acertos e erros 16/01
+        document.getElementById('acertosKpi').textContent = `${porcentagemAcertos}%`;
+        document.getElementById('errosKpi').textContent = `${porcentagemErros}%`;
 
         // Gráfico de doughnut "rosquinha" 09/01
         var kpiCtx = document.getElementById('kpiChart').getContext('2d');
@@ -56,27 +74,28 @@
             data: {
                 labels: ['Acertos', 'Erros'],
                 datasets: [{
-                    data: [acertos, erros],
+                    data: [porcentagemAcertos, porcentagemErros],
                     backgroundColor: ['#4CAF50', '#8D0303']
                 }]
             },
-    options: {
-        plugins: {
-            legend: {
-                labels: {
-                    color: 'white',
-                }
-            },
-            tooltip: {
-                callbacks: {
-                    label: function (context) {
-                        return `${context.label}: ${context.raw}`;
+            options: {
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'white',
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                // Exibe a porcentagem no gráfico 16/01
+                                return `${context.label}: ${context.raw}%`;
+                            }
+                        }
                     }
                 }
             }
-        }
-    }
-});
+        });
 
 
         var status = '';
@@ -91,6 +110,5 @@
             status = 'torcedor comum';
             kpiStatus.textContent = `Você é um ${status}`;
         }
-
     };
 </script>
