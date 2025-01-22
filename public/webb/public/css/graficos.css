@@ -1,19 +1,15 @@
 /* Reset básico */
-/* * {
+body, html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-} */
-
-
-body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: #000000;
-  
+    font-family: "Times New Roman", Times, serif;
 }
 
+body {
+    background-color: #000000;
+    color: white;
+}
 
 header {
     top: 0;
@@ -23,151 +19,149 @@ header {
     display: flex;
     justify-content: flex-end;
     background-color: #000000;
-
+    z-index: 1000;
 }
 
 .navbar {
     display: flex;
-    width: 100%;
+    justify-content: flex-end;
     gap: 60px;
-    flex-direction: row;
-    justify-content: end;
     padding-right: 30px;
-    align-items: end;
+    align-items: center;
     position: fixed;
-    z-index: 1000;
-    margin-top: 15px;
+    top: 0;
+    width: 100%;
     background-color: #000000;
-    height: 10%;
-    transform: translateY(-55%);
+    height: 80px;
+    z-index: 1000;
 }
 
 a {
     text-decoration: none;
     color: #8D0303;
-    font-size: 1.5em;
-    font-family: "Times New Roman", Times, serif;
-    cursor: pointer;
-    margin-left: 5px;
-    transition: 0.5s;
     font-size: 30px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 a:hover {
     color: #c4c2c2;
 }
 
-
+/* Títulos */
 h1 {
-    color: #ffffff;
-    font-size: 50px;
+    font-size: 55px;
     font-weight: bold;
-    background-color: #000000;
-    text-shadow: rgb(116, 19, 19) 2px 2px;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
+h2 {
+    font-size: 30px;
+    font-weight: bold;
+    color: #8D0303;
+}
+
+/* Contêiner principal */
 .container {
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
+    justify-content: space-between;
     gap: 30px;
     padding: 30px;
-
-
+   
 }
 
-.chart {
-    width: 80%;
+.chart, .chart2, .chart3, .kpi-container {
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     text-align: center;
-    margin-top: 30px;
-}
-
-.chart2 {
+    height:300px;
     width: 30%;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: center;
-    height: 300px;
- 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.chart3 {
-    width: 30%;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: center;
-    height: 500px;
-
+.chart3{
+    width: 40%;
+    margin-left: 355px;
 }
 
-#h1Usuario{
-    background-color: transparent;
-    color: #8D0303;
-
-}
-
-.chart h2 {
+.chart h2, .chart2 h2, .chart3 h2 {
     color: #8D0303;
     font-size: 22px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
-.chart2 h2 {
-    color: #8D0303;
-    font-size: 22px;
-    margin-bottom: 20px;
-}
 
-.chart3 h2 {
-    color: #8D0303;
-    font-size: 22px;
-    margin-bottom: 20px;
-}
 
-h1 .h1Usuario{
-color: white;
-    margin-left: 300px;
-
-}
-
+/* Gráficos (canvas) */
 canvas {
     width: 100% !important;
     height: auto !important;
-
-
-    .chart {
-        width: 80%;
-        margin-bottom: 20px;
-    }
 }
 
-.chart:hover, .chart2:hover, .chart3:hover {
-    transform: scale(1.05); 
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
-    transition: transform 0.3s ease, box-shadow 0.3s ease; 
-}
-
-.chart, .chart2, .chart3 {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.kpi-container{
-    width: 30%;
+/* Qtd Usuários */
+.qtdusu {
     background-color: white;
     border-radius: 10px;
     padding: 20px;
     text-align: center;
-    height: 200px;
-    margin-top: 30px;
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: 1000;
-    font-size: 150%;
+    height: 250px;
+    width: 15%;
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    margin: 0 auto;          
+    transform: translate(-200%, -120%);
+}
+
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .chart, .chart2, .chart3, .kpi-container, .qtdusu {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .chart, .chart2, .chart3, .kpi-container, .qtdusu {
+        width: 90%;
+    }
+
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    h1 {
+        font-size: 35px;
+    }
 }

@@ -17,27 +17,29 @@
       <a href="idolos.html">Ídolos</a>
       <a href="titulo.html">Títulos</a>
       <a href="sobremim.html">Sobre Mim</a>
+      <a href="quiz.html">Quiz</a>
       <a href="pautas.html">Pautas</a>
+
 
   </div>
 </header>
+<h1>DASHBOARD</h1>
 <div class="container">
-  <h1>DASHBOARD</h1>
     <div class="chart">
-      <h2>JOGADORES FAVORITOS</h2>
-      <canvas id="myChart"></canvas>
+      <h2>IDOLOS FAVORITOS</h2>
+      <canvas id="myChart3"></canvas>
     </div>
     <div class="chart2">
       <h2>TÍTULOS FAVORITOS</h2>
       <canvas id="myChart2"></canvas>
     </div>
     <div class="chart3">
-      <h2>ÍDOLOS FAVORITOS</h2>
-      <canvas id="myChart3"></canvas>
+      <h2>RANKING DOS JOGADORES FAVORITOS</h2>
+      <canvas id="myChart"></canvas>
     </div>
   
-    <div style="width: 40%  " class="chart">
-      <h1 id="h1Usuario">Usuários Cadastrados <br><br></h1>
+    <div class="qtdusu">
+      <h2 id="h1Usuario">Usuários Cadastrados <br><br></h2>
     </div>
 
 </body>
@@ -60,7 +62,8 @@
     }).then((res => {
       res.json().then((json) => {
         console.log(json)
-        for (var index = json.length - 1; index >= 0; index--) {
+        // Inverti a ordem para do mais votado aé o menos votado se tornando um ranking 22/01
+        for (var index = 0; index < json.length; index++) {
           listaJogadores.push(json[index].nomeFavorito)
           listaQtdJogadores.push(json[index].qtdFavoritos)
         }
@@ -166,7 +169,7 @@
   function carregarGraficoIdolos(){
     const ctx3 = document.getElementById("myChart3");
     myChart3 = new Chart(ctx3, {
-      type: "polarArea",
+      type: "bar",
       data: {
         labels: listaIdolos,
         datasets: [{
