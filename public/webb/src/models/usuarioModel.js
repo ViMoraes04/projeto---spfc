@@ -88,11 +88,22 @@ return database.executar(instrucaoSql);
 }
 
 //Insere dados do quiz e usuário na tabela "Opcao" no banco de dados 09/01
-function quiz(Quiz, idUsuario) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function autenticar(): ", Quiz, idUsuario);
+function quiz(Quiz, idUsuario, acertos) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function autenticar(): ", Quiz, idUsuario, acertos);
 
     var instrucaoSql = 
-    `INSERT INTO Opcao VALUES (${Quiz}, ${idUsuario});`;
+    `INSERT INTO Opcao VALUES (${Quiz}, ${idUsuario}, ${acertos});`;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    
+    return database.executar(instrucaoSql)
+}
+
+//Insere dados do ranking e usuário na tabela "Opcao" no banco de dados 22/01
+function ranking(Quiz, idUsuario, acertos) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function autenticar(): ", Quiz, idUsuario, acertos);
+
+    var instrucaoSql = 
+    `INSERT INTO Opcao VALUES (${Quiz}, ${idUsuario}, ${acertos});`;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     
     return database.executar(instrucaoSql)
@@ -106,5 +117,6 @@ module.exports = {
     listarTitulos,
     listarIdolos,
     listaQtdUsuario,
-    quiz
+    quiz,   
+    ranking
 };

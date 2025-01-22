@@ -23,14 +23,6 @@ CREATE TABLE Quiz(
 	titulo VARCHAR(100)
 );
 
-CREATE TABLE Opcao(
-idOpcao INT,
-fkUsuario INT,
-fkQuiz INT,
-CONSTRAINT fkUsuario_Opcao FOREIGN KEY(fkUsuario) REFERENCES Usuario(idUsuario),
-CONSTRAINT fkQuiz_Opcao FOREIGN KEY (fkQuiz) REFERENCES Quiz(idQuiz),
-CONSTRAINT pkOpcao PRIMARY KEY(idOpcao, fkUsuario, fkQuiz)
-);
 
 CREATE TABLE Usuario(
 idUsuario INT PRIMARY KEY AUTO_INCREMENT,
@@ -44,6 +36,17 @@ CONSTRAINT fkFavoritos_Usuario FOREIGN KEY(fkFavoritos) REFERENCES Jogadores(idJ
 CONSTRAINT fkTituloFavorito_Usuario FOREIGN KEY(fkTituloFavorito) REFERENCES Titulos(idTitulos),
 CONSTRAINT fkIdolos_Usuario FOREIGN KEY(fkIdolos) REFERENCES Idolos(idIdolos)
 );
+
+CREATE TABLE Opcao(
+idOpcao INT,
+fkUsuario INT,
+fkQuiz INT,
+CONSTRAINT fkUsuario_Opcao FOREIGN KEY(fkUsuario) REFERENCES Usuario(idUsuario),
+CONSTRAINT fkQuiz_Opcao FOREIGN KEY (fkQuiz) REFERENCES Quiz(idQuiz),
+CONSTRAINT pkOpcao PRIMARY KEY(idOpcao, fkUsuario, fkQuiz)
+);
+-- Adicionando uma coluna referente ao acertos do quiz 22/01
+ALTER TABLE Opcao ADD COLUMN acertos INT;
 
 INSERT INTO Jogadores VALUES
 (default, 'Calleri', 9),
@@ -77,9 +80,6 @@ INSERT INTO Titulos VALUES
 (default, 'Copa do Brasil', 1),
 (default, 'Campeonato Paulista', 22),
 (default, 'Copa Sul-Americana', 1);
-
-
-
 
 
 INSERT INTO Usuario (nome, email, senha, fkFavoritos, fkTituloFavorito) VALUES 

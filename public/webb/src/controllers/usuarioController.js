@@ -117,7 +117,7 @@ function quiz(req, res) {
     var Quiz = req.body.QuizServer;
     var idUsuario = req.body.idUsuarioServer;
 
-    quizModel.quiz(Quiz, idUsuario)
+    quizModel.quiz(Quiz, idUsuario, acertos)
         .then(function (resultado) {
             res.status(201).json(resultado);
         })
@@ -128,6 +128,13 @@ function quiz(req, res) {
         })
 }
 
+// Definindo a função ranking 22/01
+function ranking(req, res) {
+    usuarioModel.ranking(req, res).then((resultado => {
+        res.status(200).json(resultado)
+    }))
+}
+
 module.exports = {
     autenticar,
     cadastrar,
@@ -136,5 +143,6 @@ module.exports = {
     listarTitulos,
     listarIdolos,
     listaQtdUsuario,
-    quiz
+    quiz,
+    ranking
 }
