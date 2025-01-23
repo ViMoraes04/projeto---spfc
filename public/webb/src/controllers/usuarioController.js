@@ -128,12 +128,6 @@ function quiz(req, res) {
         })
 }
 
-// Definindo a função ranking 22/01
-function ranking(req, res) {
-    usuarioModel.ranking(req, res).then((resultado => {
-        res.status(200).json(resultado)
-    }))
-}
 
 module.exports = {
     autenticar,
@@ -143,6 +137,5 @@ module.exports = {
     listarTitulos,
     listarIdolos,
     listaQtdUsuario,
-    quiz,
-    ranking
+    quiz
 }

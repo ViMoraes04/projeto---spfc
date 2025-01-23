@@ -63,7 +63,7 @@ h2 {
     color: #8D0303;
 }
 
-/* Contêiner principal */
+
 .container {
     display: flex;
     flex-wrap: wrap;
@@ -73,6 +73,7 @@ h2 {
    
 }
 
+/* modificando a estilização do gráfico 22/01 */
 .chart, .chart2, .chart3, .kpi-container {
     background-color: white;
     border-radius: 10px;
@@ -100,13 +101,11 @@ h2 {
 
 
 
-/* Gráficos (canvas) */
 canvas {
     width: 100% !important;
     height: auto !important;
 }
 
-/* Qtd Usuários */
 .qtdusu {
     background-color: white;
     border-radius: 10px;

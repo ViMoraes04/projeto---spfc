@@ -38,9 +38,6 @@ router.post("/quiz", function (req, res) {
     usuarioController.quiz(req, res);
 })
 
-// Rota para enviar os dados do ranking ao controlador 22/01
-router.post("/ranking", function (req, res) {
-    usuarioController.ranking(req, res);
-})
+
 
 module.exports = router;
