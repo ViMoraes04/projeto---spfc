@@ -62,7 +62,7 @@
     }).then((res => {
       res.json().then((json) => {
         console.log(json)
-        // Inverti a ordem para do mais votado aé o menos votado se tornando um ranking 22/01
+        // Inverti a ordem para do mais votado até o menos votado se tornando um ranking 22/01
         for (var index = 0; index < json.length; index++) {
           listaJogadores.push(json[index].nomeFavorito)
           listaQtdJogadores.push(json[index].qtdFavoritos)

@@ -40,4 +40,9 @@ router.post("/quiz", function (req, res) {
 
 
 
+router.get("/minMaxAcertos", usuarioController.buscarMinMaxAcertos);
+
+module.exports = router;
+
+
 module.exports = router;
