@@ -95,6 +95,7 @@ function listarJogadores(req, res) {
     }))
 }
 
+// Pega o resultado e retorna como JSON 31/01
 function mostrarJogadores(req, res) {
     usuarioModel.mostrarJogadores(req, res).then((resultado => {
         res.status(200).json(resultado)

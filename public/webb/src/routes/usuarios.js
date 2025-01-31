@@ -22,6 +22,7 @@ router.get("/listarJogadores", function (req,res){
     usuarioController.listarJogadores(req,res)
 })
 
+// Rota que retorna os jogadores mais e menos votados 31/01
 router.get("/mostrarJogadores", function (req,res){
     usuarioController.mostrarJogadores(req,res)
 })

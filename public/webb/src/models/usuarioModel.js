@@ -54,6 +54,7 @@ ORDER BY
 return database.executar(instrucaoSql);
 }
 
+// Aqui busca os jogadores mais e menos votados com base na contagem de votos na tabela usuário 31/01
 function mostrarJogadores(){
     var instrucaoSql =
 `SELECT j.nome, qtdFavoritos

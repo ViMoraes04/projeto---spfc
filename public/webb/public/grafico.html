@@ -39,8 +39,7 @@
     </div>
 
    
-
-   <!-- KPI - Jogador mais e menos votado -->
+<!-- KPI - Jogador mais e menos votado 31/01 -->
    <div class="kpi-container">
     <h2>Jogador Mais Votado</h2>
     <p id="maisVotado">Carregando...</p>
@@ -121,7 +120,7 @@
     console.log(listaJogadores)
   }
 
-
+// Busca os jogadores mais e menos votados do backend e exibe seus nomes e votos 31/01
   function mostrarJogadores() {
     fetch("/usuarios/mostrarJogadores", {
       method: "GET",
