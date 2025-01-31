@@ -1,4 +1,3 @@
-/* Reset básico */
 body, html {
     margin: 0;
     padding: 0;
@@ -8,7 +7,7 @@ body, html {
 
 body {
     background-color: #000000;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 header {
@@ -44,122 +43,92 @@ a {
     transition: 0.3s;
 }
 
-a:hover {
-    color: #c4c2c2;
+h1 {
+    margin: 20px 0;
+    font-size: 28px;
+    color: #8D0303;
+    text-align: center;
 }
 
-/* Títulos */
-h1 {
-    font-size: 55px;
-    font-weight: bold;
-    color: white;
-    text-align: center;
-    margin-bottom: 20px;
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin-left: 20px;
+}
+
+/* Gráficos */
+.chart, .chart2, .chart3 {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Gráfico de Ranking, aumentando o tamanho e centralizando */
+.chart3 {
+    grid-column: span 2; /* Faz o gráfico do ranking ocupar duas colunas */
+    max-width: 100%; /* Garante que não ultrapasse o tamanho da tela */
+    margin: 0 auto; /* Centraliza o gráfico */
 }
 
 h2 {
-    font-size: 30px;
-    font-weight: bold;
-    color: #8D0303;
-}
-
-
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 30px;
-    padding: 30px;
-   
-}
-
-/* modificando a estilização do gráfico 22/01 */
-.chart, .chart2, .chart3, .kpi-container {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: center;
-    height:300px;
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.chart3{
-    width: 40%;
-    margin-left: 355px;
-}
-
-.chart h2, .chart2 h2, .chart3 h2 {
-    color: #8D0303;
-    font-size: 22px;
     margin-bottom: 15px;
+    font-size: 22px;
 }
-
-
 
 canvas {
     width: 100% !important;
     height: auto !important;
 }
 
-.qtdusu {
-    background-color: white;
-    border-radius: 10px;
+/* KPI - Jogador mais e menos votado */
+.kpi-container {
+    background: white;
     padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 80%;
     text-align: center;
-    height: 250px;
-    width: 15%;
-    display: flex;
-    justify-content: center; 
-    align-items: center;     
-    margin: 0 auto;          
-    transform: translate(-200%, -120%);
 }
 
-
-@media (max-width: 1024px) {
-    .container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .chart, .chart2, .chart3, .kpi-container, .qtdusu {
-        width: 80%;
-        margin-bottom: 20px;
-    }
-
-    .navbar {
-        flex-direction: column;
-        gap: 10px;
-        padding: 20px;
-    }
-
-    h1 {
-        font-size: 40px;
-    }
+.kpi-container p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #8D0303;
 }
 
+/* Quantidade de Usuários */
+.qtdusu {
+    background: white;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    text-align: center;
+}
+
+.qtdusu span {
+    font-size: 50px;
+    color: #8D0303;
+    font-weight: bold;
+}
+
+/* Responsividade para telas menores */
 @media (max-width: 768px) {
     .container {
-        flex-direction: column;
-        gap: 20px;
-        align-items: center;
+        grid-template-columns: 1fr; /* Coloca todos os gráficos em uma única coluna */
     }
 
-    .chart, .chart2, .chart3, .kpi-container, .qtdusu {
-        width: 90%;
+    .chart3 {
+        grid-column: span 1; /* O gráfico de ranking vai ocupar toda a largura disponível */
     }
 
-    .navbar {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    h1 {
-        font-size: 35px;
+    .qtdusu, .kpi-container {
+        width: 90%; /* Ajusta a largura dos KPIs e quantidade de usuários em telas menores */
     }
 }

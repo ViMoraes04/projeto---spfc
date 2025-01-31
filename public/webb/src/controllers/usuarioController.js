@@ -95,6 +95,13 @@ function listarJogadores(req, res) {
     }))
 }
 
+function mostrarJogadores(req, res) {
+    usuarioModel.mostrarJogadores(req, res).then((resultado => {
+        res.status(200).json(resultado)
+    }))
+}
+
+
 function listarTitulos(req, res) {
     usuarioModel.listarTitulos(req, res).then((resultado => {
         res.status(200).json(resultado)
@@ -114,39 +121,29 @@ function listaQtdUsuario(req, res) {
 
 // Definindo a função quiz 09/01
 function quiz(req, res) {
-    var Quiz = req.body.QuizServer;
-    var idUsuario = req.body.idUsuarioServer;
+    var fkUsuarioQuiz = req.body.fkUsuarioQuizServer;
+    var idQuiz = req.body.idQuizServer;
 
-    quizModel.quiz(Quiz, idUsuario, acertos)
-        .then(function (resultado) {
-            res.status(201).json(resultado);
-        })
-        .catch(function (erro) {
-            console.log(erro);
-            console.log("\nHouve um erro ao realizar a inserção do quiz! Erro: ", erro);
-            res.status(500).json({ error: erro.sqlMessage });
-        })
-}
 
-function buscarMinMaxAcertos(req, res) {
-    usuarioModel.obterMinMaxAcertos()
-        .then((resultado) => {
+    usuarioModel.quiz(fkUsuarioQuiz, idQuiz)
+    .then(
+        function (resultado) {
             res.json(resultado);
-        })
-        .catch((erro) => {
-            console.log(erro);
-            res.status(500).json(erro.sqlMessage);
-        });
+        }
+    );
 }
+
+
 
 module.exports = {
     autenticar,
     cadastrar,
     registro,
     listarJogadores,
+    mostrarJogadores,
     listarTitulos,
     listarIdolos,
     listaQtdUsuario,
-    quiz,
-    buscarMinMaxAcertos
+    quiz
+
 }

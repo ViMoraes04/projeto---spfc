@@ -22,6 +22,10 @@ router.get("/listarJogadores", function (req,res){
     usuarioController.listarJogadores(req,res)
 })
 
+router.get("/mostrarJogadores", function (req,res){
+    usuarioController.mostrarJogadores(req,res)
+})
+
 router.get("/listarTitulos", function (req,res){
     usuarioController.listarTitulos(req,res)
 })
@@ -37,12 +41,6 @@ router.get("/listaQtdUsuario", function (req,res){
 router.post("/quiz", function (req, res) {
     usuarioController.quiz(req, res);
 })
-
-
-
-router.get("/minMaxAcertos", usuarioController.buscarMinMaxAcertos);
-
-module.exports = router;
 
 
 module.exports = router;

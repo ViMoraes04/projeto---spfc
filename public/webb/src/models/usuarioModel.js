@@ -53,6 +53,25 @@ ORDER BY
 ;`;
 return database.executar(instrucaoSql);
 }
+
+function mostrarJogadores(){
+    var instrucaoSql =
+`SELECT j.nome, qtdFavoritos
+FROM (
+    SELECT 
+        fkFavoritos, 
+        COUNT(fkFavoritos) AS qtdFavoritos
+    FROM Usuario
+    GROUP BY fkFavoritos
+) subquery
+INNER JOIN Jogadores j ON subquery.fkFavoritos = j.idJogadores
+WHERE 
+    qtdFavoritos = (SELECT MAX(qtd) FROM (SELECT COUNT(fkFavoritos) AS qtd FROM Usuario GROUP BY fkFavoritos) max_sub)
+    OR
+    qtdFavoritos = (SELECT MIN(qtd) FROM (SELECT COUNT(fkFavoritos) AS qtd FROM Usuario GROUP BY fkFavoritos) min_sub);`
+    return database.executar(instrucaoSql);
+}
+
 function listarTitulos(){
     var instrucaoSql = `
         SELECT 
@@ -89,35 +108,28 @@ return database.executar(instrucaoSql);
 
 //Insere dados do quiz e usuário na tabela "Opcao" no banco de dados 09/01
 // Adicionando os acertos no quiz 22/01
-function quiz(Quiz, idUsuario, acertos) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function autenticar(): ", Quiz, idUsuario, acertos);
+function quiz(fkUsuarioQuiz, idQuiz) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function autenticar(): ", fkUsuarioQuiz, idQuiz);
 
     var instrucaoSql = 
-    `INSERT INTO Opcao VALUES (${Quiz}, ${idUsuario}, ${acertos});`;
+    `
+        UPDATE Opcao SET fkUsuarioQuiz = ${fkUsuarioQuiz} WHERE idQuiz = ${idQuiz};
+    `;;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     
     return database.executar(instrucaoSql)
 }
 
-function obterMinMaxAcertos() {
-    var instrucaoSql = `
-        SELECT 
-            MIN(acertos) AS MinAcertos,
-            MAX(acertos) AS MaxAcertos
-        FROM Opcao;
-    `;
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
-}
+
 
 module.exports = {
     autenticar,
     cadastrar,
     registro,
     listarJogadores,
+    mostrarJogadores,
     listarTitulos,
     listarIdolos,
     listaQtdUsuario,
-    quiz,
-    obterMinMaxAcertos 
+    quiz
 };

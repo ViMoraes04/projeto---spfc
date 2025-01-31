@@ -37,7 +37,17 @@
       <h2>RANKING DOS JOGADORES FAVORITOS</h2>
       <canvas id="myChart"></canvas>
     </div>
-  
+
+   
+
+   <!-- KPI - Jogador mais e menos votado -->
+   <div class="kpi-container">
+    <h2>Jogador Mais Votado</h2>
+    <p id="maisVotado">Carregando...</p>
+    <h2>Jogador Menos Votado</h2>
+    <p id="menosVotado">Carregando...</p>
+  </div>
+
     <div class="qtdusu">
       <h2 id="h1Usuario">Usuários Cadastrados <br><br></h2>
     </div>
@@ -53,6 +63,7 @@
   var listaIdolos = []
   var listaQtdIdolos = []
   var listaQtdUsuario = []
+ 
 
 
 
@@ -109,6 +120,22 @@
     });
     console.log(listaJogadores)
   }
+
+
+  function mostrarJogadores() {
+    fetch("/usuarios/mostrarJogadores", {
+      method: "GET",
+    }).then(res => {
+      res.json().then(json => {
+        console.log(json);
+        if (json.length >= 2) {
+          document.getElementById("maisVotado").innerText = `${json[0].nome} (${json[0].qtdFavoritos} votos)`;
+          document.getElementById("menosVotado").innerText = `${json[1].nome} (${json[1].qtdFavoritos} votos)`;
+        }
+      });
+    });
+  }
+
 
   function listarQtdUsuario() {
     fetch("/usuarios/listaQtdUsuario", {
@@ -197,6 +224,7 @@
     listarJogadores()
     listarTitulos()
     listarIdolos()
+    mostrarJogadores()
   
   }
 </script>
